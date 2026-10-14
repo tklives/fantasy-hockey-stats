@@ -368,12 +368,13 @@ def pull_week(week, teams, current_sp, current_week, items):
 
     frozen = frozen_rosters(week, current_sp)
     tids = [t for m in matchups for t in (m["home"], m["away"]) if t is not None]
-    days = {}
+    days, reused = {}, 0
     for sp in sorted(day_ids):
         if sp > current_sp:
             continue  # future days have nothing to show
         if all((sp, t) in frozen for t in tids):
             days[sp] = {t: frozen[(sp, t)] for t in tids}
+            reused += 1
         else:
             days[sp] = roster_day(sp, final=(sp < current_sp), show=show)  # today stays uncached
 
@@ -415,7 +416,7 @@ def pull_week(week, teams, current_sp, current_week, items):
 
     out_path = DATA / f"week_{week}.json"
     out_path.write_text(json.dumps(result, indent=1), encoding="utf-8")
-    print(f"Wrote {out_path} ({len(frozen) // max(len(tids), 1)} finished day(s) reused from the saved file)")
+    print(f"Wrote {out_path} ({reused} of {len(days)} day(s) reused from the saved file)")
 
 
 def main():
