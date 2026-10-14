@@ -173,7 +173,46 @@ PAGE = r"""<!doctype html>
            border: 1px solid var(--line); border-radius: 10px; padding: 16px; }
   dialog::backdrop { background: rgba(0, 0, 0, .5); }
   .close { float: right; }
-  @media (max-width: 700px) { .pc .sl { display: none; } }
+  .daybar { display: none; }
+  .key > summary { display: none; }
+
+  /* Phones: one day per screen instead of sideways scrolling, a collapsible key, a stacked misses list. */
+  @media (max-width: 700px) {
+    body { padding: 12px; }
+    .key > summary { display: block; cursor: pointer; color: var(--muted); font-size: 13px; padding: 2px 0 12px; }
+    .key > summary::before { content: '\25B8'; margin-right: 6px; }
+    .key[open] > summary::before { content: '\25BE'; }
+    .key .legend { margin-bottom: 14px; }
+
+    .daybar { display: flex; gap: 6px; position: sticky; top: 0; z-index: 5; background: var(--bg); padding: 8px 0 10px; }
+    .daybar button { flex: 1; font: inherit; font-size: 14px; padding: 9px 0; border: 1px solid var(--line);
+                     border-radius: 8px; background: var(--card); color: var(--muted); cursor: pointer; }
+    .daybar button[aria-pressed="true"] { background: var(--row); color: var(--text); font-weight: 600; border-color: var(--muted); }
+    .daybar button.today { box-shadow: inset 0 -2px 0 var(--accent); }
+    .daybar button.future { opacity: .5; }
+
+    table.ov { table-layout: auto; min-width: 0; }
+    table.ov colgroup { display: none; }
+    table.ov th:first-child, table.ov td:first-child { position: static; width: 44%; }
+    table.ov.show-d1 [data-d]:not([data-d="1"]) { display: none; }
+    table.ov.show-d2 [data-d]:not([data-d="2"]) { display: none; }
+    table.ov.show-d3 [data-d]:not([data-d="3"]) { display: none; }
+    table.ov.show-d4 [data-d]:not([data-d="4"]) { display: none; }
+    table.ov.show-d5 [data-d]:not([data-d="5"]) { display: none; }
+    table.ov.show-d6 [data-d]:not([data-d="6"]) { display: none; }
+    table.ov.show-d7 [data-d]:not([data-d="7"]) { display: none; }
+    .pc .sl { white-space: normal; overflow: visible; }
+
+    table.misses, table.misses tbody { display: block; }
+    table.misses tr.miss { display: grid; grid-template-columns: 52px 1fr auto auto;
+                           grid-template-areas: "pt who wk day" "pt team team team"; align-items: center; padding: 6px 0; }
+    table.misses td { padding: 0 4px; }
+    table.misses td.pt { grid-area: pt; }
+    table.misses td.who { grid-area: who; }
+    table.misses td.wk { grid-area: wk; }
+    table.misses td.day { grid-area: day; }
+    table.misses td.team { grid-area: team; font-size: 13px; }
+  }
 </style>
 </head>
 <body>
@@ -193,6 +232,8 @@ PAGE = r"""<!doctype html>
       <button class="btn" id="toggle-all">Expand all teams</button>
     </div>
   </header>
+  <details class="key" open>
+  <summary>Key</summary>
   <p class="legend">
     <span><b class="ex">1.2</b>Active (counted)</span>
     <span><b class="ex ben">1.2</b><span class="tag">BE</span> Bench (not counted)</span>
@@ -204,6 +245,7 @@ PAGE = r"""<!doctype html>
     <span><span class="tag dnp">DNP</span> team played, player didn't</span>
     <span><span class="tag dnp">O</span> <span class="tag dnp">DTD</span> out / day-to-day today (as of last update)</span>
   </p>
+  </details>
   <div id="week"></div>
   <p class="muted">Updated <time id="gen" datetime="__GENERATED__">__GENERATED__</time>. Click a team row to see its players. Big number = points from
     the day; small number under a team's points = points left on the bench (BE and IR). Week column:
@@ -306,6 +348,13 @@ function playerCell(date, r, p, maxP) {
 }
 
 // Every player who was on this team at any point in the week, one row each, best scorer first.
+// Marks a row's day cells (everything between the name and the Week column) with data-d="1".."7".
+// On phones, CSS uses it to show one day at a time; on wider screens it does nothing.
+function tagDays(tr) {
+  [...tr.children].slice(1, -1).forEach((td, i) => { td.dataset.d = String(i + 1); });
+  return tr;
+}
+
 function playerRows(m, x, sps, maxP) {
   const byId = new Map();
   for (const sp of sps) for (const p of m.days[sp][x.s].players) {
@@ -331,13 +380,13 @@ function playerRows(m, x, sps, maxP) {
     // "+ Tue" = first day on the roster; "- Tue" = first day gone from it.
     if (first > 0) notes.push(h('span', { class: 'add', title: 'Joined the roster' }, `+ ${wd(live[first])}`));
     if (last < live.length - 1) notes.push(h('span', { class: 'drop', title: 'Left the roster' }, `− ${wd(live[last + 1])}`));
-    return h('tr', { class: 'prow' },
+    return tagDays(h('tr', { class: 'prow' },
       h('td', {}, h('span', { class: 'pname' }, r.name), h('span', { class: 'ppos' }, r.pos),
         notes.length > 0 && h('span', { class: 'note' }, notes)),
       sps.map((sp) => m.days[sp].future
         ? h('td', { class: 'future' }, '·')
         : playerCell(m.days[sp].date, r, r.days[sp], maxP)),
-      weekCell(r.counted, r.benched));
+      weekCell(r.counted, r.benched)));
   });
 }
 
@@ -348,7 +397,7 @@ function teamBody(m, x, sps, maxP, maxAbs, isTop) {
   const toggle = h('button', { class: 'tg', 'aria-expanded': 'false' },
     h('span', { class: 'chev' }),
     h('span', isTop ? { class: 'winner', title: 'Higher total this week' } : {}, x.name));
-  const row = h('tr', { class: 'teamrow' },
+  const row = tagDays(h('tr', { class: 'teamrow' },
     h('td', {}, toggle),
     sps.map((sp) => {
       const d = m.days[sp];
@@ -359,7 +408,7 @@ function teamBody(m, x, sps, maxP, maxAbs, isTop) {
       c.style.setProperty('--a', (Math.min(Math.abs(v) / maxAbs, 1) * 0.6).toFixed(2));
       return h('td', {}, c);
     }),
-    weekCell(x.active, x.bench));
+    weekCell(x.active, x.bench)));
   tb.append(row);
 
   let built = false;
@@ -472,6 +521,17 @@ function missesCard(w) {
   return card;
 }
 
+// Phones show one day at a time, chosen with the day bar above the matchups. Every table gets a
+// show-dN class that the phone CSS uses to hide the other day columns. The choice sticks across weeks.
+let pickedDay = null;                           // 0-based; null until the user picks one
+function showDay(i) {
+  for (const t of document.querySelectorAll('table.ov')) {
+    for (let n = 1; n <= 7; n++) t.classList.remove(`show-d${n}`);
+    t.classList.add(`show-d${i + 1}`);
+  }
+  document.querySelectorAll('.daybar button').forEach((b, j) => b.setAttribute('aria-pressed', String(j === i)));
+}
+
 function renderWeek(w) {
   const root = document.getElementById('week');
   const first = w.matchups[0];
@@ -501,11 +561,11 @@ function renderWeek(w) {
     for (const x of sides) bench.push(x);
     const top = Math.max(...sides.map((x) => x.active));
 
-    const head = h('tr', {}, h('th', {}, ''),
+    const head = tagDays(h('tr', {}, h('th', {}, ''),
       sps.map((sp) => {
         const d = m.days[sp];
         return h('th', { class: d.future ? 'future' : d.today ? 'today' : '' }, dayLabel(d.date));
-      }), h('th', {}, 'Week'));
+      }), h('th', {}, 'Week')));
     const bodies = sides.map((x) => teamBody(m, x, sps, maxP, maxAbs, !bye && x.active === top && x.active > 0));
 
     let both = null;                            // nothing to pair up on a bye
@@ -530,7 +590,19 @@ function renderWeek(w) {
   const cards = w.matchups.map(card);
   const byeCards = byes.map(card);              // after the matchups, at the bottom
 
-  root.replaceChildren(h('div', { class: 'top-grid' }, benchCard(bench, w), missesCard(w)), ...cards, ...byeCards);
+  // Day bar for phones: today (or, for a finished week, the last day) unless the user already picked one.
+  const todayIdx = sps.findIndex((sp) => first.days[sp].today);
+  const startDay = Math.min(pickedDay ?? (todayIdx >= 0 ? todayIdx : sps.length - 1), sps.length - 1);
+  const daybar = h('div', { class: 'daybar', role: 'group', 'aria-label': 'Day' },
+    sps.map((sp, i) => {
+      const d = first.days[sp];
+      const name = new Date(d.date + 'T12:00:00').toLocaleDateString(undefined, { weekday: 'short' });
+      return h('button', { class: d.future ? 'future' : d.today ? 'today' : '', onclick: () => { pickedDay = i; showDay(i); } }, name);
+    }));
+
+  root.replaceChildren(h('div', { class: 'top-grid' }, benchCard(bench, w), missesCard(w)),
+    h('div', { class: 'matchups' }, daybar, ...cards, ...byeCards));
+  showDay(startDay);
   document.getElementById('toggle-all').textContent = 'Expand all teams';
 }
 
@@ -555,6 +627,7 @@ document.getElementById('toggle-all').addEventListener('click', (e) => {
 });
 const gen = document.getElementById('gen');  // show the build time in the viewer's own timezone
 if (!isNaN(new Date(gen.getAttribute('datetime')))) gen.textContent = new Date(gen.getAttribute('datetime')).toLocaleString();
+if (matchMedia('(max-width: 700px)').matches) document.querySelector('details.key').open = false;   // key starts closed on phones
 const dlg = document.getElementById('detail');
 document.getElementById('detail-close').addEventListener('click', () => dlg.close());
 dlg.addEventListener('click', (e) => { if (e.target === dlg) dlg.close(); });  // click on backdrop
