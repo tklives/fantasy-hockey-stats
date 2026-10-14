@@ -80,9 +80,7 @@ PAGE = r"""<!doctype html>
 
   .top-grid { display: flex; flex-wrap: wrap; gap: 16px; align-items: stretch; margin-bottom: 16px; }
   .top-grid .card { margin-bottom: 0; }
-  .bench-card { flex: 0 1 580px; min-width: 300px; }
-  table.bench th.grp { text-align: center; font-size: 12px; padding-bottom: 2px; border-bottom: 1px solid var(--line); }
-  table.bench th.grp + th.grp, table.bench thead tr:nth-child(2) th:nth-child(5), table.bench td:nth-child(5) { border-left: 1px solid var(--line); }
+  .bench-card { flex: 0 1 440px; min-width: 300px; }
   .misses-card { flex: 1 1 400px; min-width: 300px; }
   table.misses td { padding: 4px 8px; vertical-align: middle; white-space: nowrap; }
   table.misses tr.miss { cursor: pointer; border-top: 1px solid var(--line); }
@@ -388,48 +386,55 @@ function seasonTotals(upTo) {
   return t;
 }
 
-// Compact leaderboard of bench vs. active points, for this week and for the season so far. Click a
-// column header to sort by it (click again to flip); the rank column follows the current order, and
-// the choice sticks across weeks.
-let benchSort = { key: 'bench', dir: 'desc' };
+// The "This week / Season" control used in the header of both cards at the top. Each card keeps its
+// own choice (`current` and `choose`), so they look and work the same but don't affect each other.
+function scopeToggle(current, choose) {
+  return h('div', { class: 'seg', role: 'group', 'aria-label': 'Time span' },
+    [['week', 'This week'], ['season', 'Season']].map(([k, label]) => h('button', {
+      'aria-pressed': String(current === k), onclick: () => choose(k) }, label)));
+}
+
+// Compact leaderboard of bench vs. active points for this week or the season so far. Click a column
+// header to sort by it (click again to flip); the rank column follows the current order. The span and
+// the sort stick across weeks.
+let benchScope = 'week';
+let benchSort = { key: 'bench', dir: 'desc' };   // 'bench' or 'active', whichever span is showing
 function benchCard(rows, w) {
   const season = seasonTotals(w.week);
   for (const x of rows) {
     x.sbench = season[x.id]?.bench ?? 0;
     x.sactive = season[x.id]?.active ?? 0;
   }
-  const card = h('section', { class: 'card bench-card' },
-    h('div', { class: 'card-head' }, h('h2', {}, 'Points left on the bench')));
+  const card = h('section', { class: 'card bench-card' });
   const num = (v, bench) => h('td', { class: 'num' + (bench ? ' bn' : '') }, fmt(v));
   const draw = () => {
+    const pre = benchScope === 'season' ? 's' : '';
     const sign = benchSort.dir === 'desc' ? -1 : 1;
-    const sorted = [...rows].sort((a, b) => sign * (a[benchSort.key] - b[benchSort.key]) || a.name.localeCompare(b.name));
+    const sorted = [...rows].sort((a, b) =>
+      sign * (a[pre + benchSort.key] - b[pre + benchSort.key]) || a.name.localeCompare(b.name));
     const th = (key, label) => h('th', {
       class: 'sortable' + (benchSort.key === key ? ` sorted ${benchSort.dir}` : ''),
       'aria-sort': benchSort.key === key ? (benchSort.dir === 'desc' ? 'descending' : 'ascending') : 'none',
-    }, h('button', { class: 'sort', title: 'Sort by ' + label + (key[0] === 's' ? ' (season)' : ' (this week)'), onclick: () => {
+    }, h('button', { class: 'sort', title: 'Sort by ' + label, onclick: () => {
       benchSort = benchSort.key === key ? { key, dir: benchSort.dir === 'desc' ? 'asc' : 'desc' } : { key, dir: 'desc' };
       draw();
     } }, label));
-    card.querySelector('table')?.remove();
-    card.append(h('table', { class: 'bench' },
-      h('thead', {},
-        h('tr', {}, h('th', {}), h('th', {}), h('th', { class: 'grp', colspan: '2' }, 'This week'),
-          h('th', { class: 'grp', colspan: '2' }, 'Season to date')),
-        h('tr', {}, h('th', {}, '#'), h('th', {}, 'Team'), th('bench', 'Bench'), th('active', 'Active'),
-          th('sbench', 'Bench'), th('sactive', 'Active'))),
-      h('tbody', {}, sorted.map((x, i) => h('tr', {},
-        h('td', {}, String(i + 1)),
-        h('td', {}, x.bye ? `${x.name} (bye)` : x.name),
-        num(x.bench, true), num(x.active), num(x.sbench, true), num(x.sactive))))));
+    card.replaceChildren(
+      h('div', { class: 'card-head' }, h('h2', {}, 'Points left on the bench'),
+        scopeToggle(benchScope, (k) => { benchScope = k; draw(); })),
+      h('table', { class: 'bench' },
+        h('thead', {}, h('tr', {}, h('th', {}, '#'), h('th', {}, 'Team'), th('bench', 'Bench'), th('active', 'Active'))),
+        h('tbody', {}, sorted.map((x, i) => h('tr', {},
+          h('td', {}, String(i + 1)),
+          h('td', {}, x.bye ? `${x.name} (bye)` : x.name),
+          num(x[pre + 'bench'], true), num(x[pre + 'active']))))));
   };
   draw();
   return card;
 }
 
 // The best individual scores from players sitting in a BE or IR slot, i.e. points that didn't count,
-// for this week or the whole season so far. Click a row for the player's day. The toggle sticks
-// across weeks.
+// for this week or the season so far. Click a row for the player's day. The span sticks across weeks.
 let missesScope = 'week';
 function missesCard(w) {
   const card = h('section', { class: 'card misses-card' });
@@ -453,11 +458,9 @@ function missesCard(w) {
         p.slot_id === 8 && h('span', { class: 'tag' }, 'IR')),   // every row is a bench slot; only IR is worth marking
       h('td', { class: 'team' }, team),
       h('td', { class: 'day' }, dayLabel(date))));
-    const seg = h('div', { class: 'seg', role: 'group', 'aria-label': 'Time span' },
-      [['week', 'This week'], ['season', 'Season']].map(([k, label]) => h('button', {
-        'aria-pressed': String(missesScope === k), onclick: () => { missesScope = k; draw(); } }, label)));
     card.replaceChildren(
-      h('div', { class: 'card-head' }, h('h2', {}, 'Biggest bench misses'), seg),
+      h('div', { class: 'card-head' }, h('h2', {}, 'Biggest bench misses'),
+        scopeToggle(missesScope, (k) => { missesScope = k; draw(); })),
       rows.length
         ? h('table', { class: 'misses' }, h('tbody', {}, body))
         : h('p', { class: 'muted' }, 'No points scored from the bench yet.'));
