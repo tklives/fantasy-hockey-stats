@@ -329,17 +329,20 @@ function renderWeek(w) {
 
   // Heat scales: the biggest single swing this week maps to full colour (separately for team days
   // and for individual players).
+  const byes = w.byes || [];                    // the team with no opponent this week (home side only)
+  const sidesOf = (m) => (m.away == null ? ['home'] : ['home', 'away']);
   let maxAbs = 1, maxP = 1;
-  for (const m of w.matchups) for (const d of Object.values(m.days)) for (const s of ['home', 'away']) {
+  for (const m of [...w.matchups, ...byes]) for (const d of Object.values(m.days)) for (const s of sidesOf(m)) {
     maxAbs = Math.max(maxAbs, Math.abs(d[s].active_pts));
     for (const p of d[s].players) maxP = Math.max(maxP, Math.abs(p.points));
   }
 
   const bench = [];
-  const cards = w.matchups.map((m) => {
+  const card = (m) => {
+    const bye = m.away == null;
     const days = sps.map((sp) => m.days[sp]);
-    const sides = ['home', 'away'].map((s) => ({
-      s, name: w.teams[m[s]],
+    const sides = sidesOf(m).map((s) => ({
+      s, bye, name: w.teams[m[s]],
       active: sum(days, (d) => d[s].active_pts), bench: sum(days, (d) => d[s].bench_pts),
     }));
     for (const x of sides) bench.push(x);
@@ -350,31 +353,37 @@ function renderWeek(w) {
         const d = m.days[sp];
         return h('th', { class: d.future ? 'future' : d.today ? 'today' : '' }, dayLabel(d.date));
       }), h('th', {}, 'Week'));
-    const bodies = sides.map((x) => teamBody(m, x, sps, maxP, maxAbs, x.active === top && x.active > 0));
+    const bodies = sides.map((x) => teamBody(m, x, sps, maxP, maxAbs, !bye && x.active === top && x.active > 0));
 
-    const both = h('button', { class: 'btn' }, 'Open both teams');
-    both.addEventListener('click', () => {
-      const open = !bodies.every((b) => b.isOpen());
-      bodies.forEach((b) => b.setOpen(open));
-    });
-    const sync = () => { both.textContent = bodies.every((b) => b.isOpen()) ? 'Close both teams' : 'Open both teams'; };
-    bodies.forEach((b) => b.addEventListener('rowtoggle', sync));
+    let both = null;                            // nothing to pair up on a bye
+    if (!bye) {
+      both = h('button', { class: 'btn' }, 'Open both teams');
+      both.addEventListener('click', () => {
+        const open = !bodies.every((b) => b.isOpen());
+        bodies.forEach((b) => b.setOpen(open));
+      });
+      const sync = () => { both.textContent = bodies.every((b) => b.isOpen()) ? 'Close both teams' : 'Open both teams'; };
+      bodies.forEach((b) => b.addEventListener('rowtoggle', sync));
+    }
 
     return h('section', { class: 'card' },
-      h('div', { class: 'card-head' }, h('h2', {}, `${sides[0].name} vs ${sides[1].name}`), both),
+      h('div', { class: 'card-head' },
+        h('h2', {}, bye ? `Bye week: ${sides[0].name}` : `${sides[0].name} vs ${sides[1].name}`), both),
       h('div', { class: 'scroll' },
         h('table', { class: 'ov' },
           h('colgroup', {}, h('col', { class: 'name' }), sps.map(() => h('col')), h('col', { class: 'tot' })),
           h('thead', {}, head), bodies)));
-  });
+  };
+  const cards = w.matchups.map(card);
+  const byeCards = byes.map(card);              // after the matchups, at the bottom
 
   bench.sort((a, b) => b.bench - a.bench);
   const summary = h('section', { class: 'card' },
     h('div', { class: 'card-head' }, h('h2', {}, 'Points left on the bench this week')),
     h('table', {}, h('thead', {}, h('tr', {}, h('th', {}, 'Team'), h('th', {}, 'Bench'), h('th', {}, 'Active'))),
-      h('tbody', {}, bench.map((x) => h('tr', {}, h('td', {}, x.name), h('td', {}, fmt(x.bench)), h('td', {}, fmt(x.active)))))));
+      h('tbody', {}, bench.map((x) => h('tr', {}, h('td', {}, x.bye ? `${x.name} (bye)` : x.name), h('td', {}, fmt(x.bench)), h('td', {}, fmt(x.active)))))));
 
-  root.replaceChildren(summary, ...cards);
+  root.replaceChildren(summary, ...cards, ...byeCards);
   document.getElementById('toggle-all').textContent = 'Expand all teams';
 }
 

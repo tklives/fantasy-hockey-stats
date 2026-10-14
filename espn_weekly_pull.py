@@ -107,17 +107,26 @@ def league_info():
 
 
 def matchups_for(week):
-    """Who plays whom this week, plus ESPN's own per-day totals (used as a sanity check)."""
+    """Who plays whom this week, plus ESPN's own per-day totals (used as a sanity check).
+
+    With 7 teams, one team has the bye each week. UNVERIFIED how ESPN lists it: I assume a schedule
+    entry with only one side. That team comes back with "away": None (and still has its own daily
+    points, if ESPN reports them under pointsByScoringPeriod).
+    """
     d = fetch(["mMatchupScore"])
     out = []
     for m in d["schedule"]:
-        if m.get("matchupPeriodId") != week or "away" not in m:  # skip other weeks and byes
+        if m.get("matchupPeriodId") != week:
             continue
+        sides = [x for x in (m.get("home"), m.get("away")) if x]
+        if not sides:
+            continue
+        home, away = sides[0], (sides[1] if len(sides) > 1 else None)
         out.append({
-            "home": m["home"]["teamId"],
-            "away": m["away"]["teamId"],
-            "home_by_day": m["home"].get("pointsByScoringPeriod", {}),
-            "away_by_day": m["away"].get("pointsByScoringPeriod", {}),
+            "home": home["teamId"],
+            "away": away["teamId"] if away else None,
+            "home_by_day": home.get("pointsByScoringPeriod", {}),
+            "away_by_day": away.get("pointsByScoringPeriod", {}) if away else {},
         })
     return out
 
@@ -333,12 +342,15 @@ def frozen_rosters(week, current_sp):
     if not path.exists():
         return {}
     frozen = {}
-    for m in json.loads(path.read_text(encoding="utf-8"))["matchups"]:
+    saved = json.loads(path.read_text(encoding="utf-8"))
+    for m in saved["matchups"] + saved.get("byes", []):
         for sp, day in m["days"].items():
             sp = int(sp)
             if day.get("future") or day.get("today") or sp > current_sp - 2:
                 continue
             for side in ("home", "away"):
+                if side not in day:  # a bye team has no away side
+                    continue
                 players = day[side]["players"]
                 if players and "state" in players[0]:  # saved in the current format
                     frozen[(sp, m[side])] = players
@@ -355,7 +367,7 @@ def pull_week(week, teams, current_sp, current_week, items):
         day_ids.add(current_sp)  # today may not have points yet
 
     frozen = frozen_rosters(week, current_sp)
-    tids = [m[side] for m in matchups for side in ("home", "away")]
+    tids = [t for m in matchups for t in (m["home"], m["away"]) if t is not None]
     days = {}
     for sp in sorted(day_ids):
         if sp > current_sp:
@@ -373,12 +385,14 @@ def pull_week(week, teams, current_sp, current_week, items):
         last = max(days)
         future = [last + i for i in range(1, 7 - dt.date.fromisoformat(date_of(last)).weekday())]
 
-    result = {"week": week, "teams": teams, "matchups": []}
+    # "matchups" are the pairings; "byes" holds the team with no opponent (same shape, home side only).
+    result = {"week": week, "teams": teams, "matchups": [], "byes": []}
     for m in matchups:
+        sides = ("home", "away") if m["away"] is not None else ("home",)
         entry = {"home": m["home"], "away": m["away"], "days": {}}
         for sp, rosters in days.items():
             day = {"date": date_of(sp), "today": sp == current_sp}
-            for side in ("home", "away"):
+            for side in sides:
                 tid = m[side]
                 pl = rosters[tid]
                 active = sum(p["points"] for p in pl if p["slot_id"] not in BENCH_SLOTS)
@@ -396,8 +410,8 @@ def pull_week(week, teams, current_sp, current_week, items):
             entry["days"][sp] = day
         for sp in future:  # placeholders: no rosters or points, just the date
             blank = {"players": [], "active_pts": 0.0, "bench_pts": 0.0, "espn_reported": None}
-            entry["days"][sp] = {"date": date_of(sp), "future": True, "home": dict(blank), "away": dict(blank)}
-        result["matchups"].append(entry)
+            entry["days"][sp] = {"date": date_of(sp), "future": True, **{side: dict(blank) for side in sides}}
+        result["matchups" if m["away"] is not None else "byes"].append(entry)
 
     out_path = DATA / f"week_{week}.json"
     out_path.write_text(json.dumps(result, indent=1), encoding="utf-8")
@@ -422,6 +436,11 @@ def main():
         weeks = [args.week]
     elif args.auto:
         weeks = [current_week - 1, current_week]
+        # One-time backfill: weeks saved before bye teams were recorded have no "byes" entry.
+        for path in sorted(DATA.glob("week_*.json")):
+            saved = json.loads(path.read_text(encoding="utf-8"))
+            if "byes" not in saved and saved["week"] not in weeks:
+                weeks.insert(0, saved["week"])
     else:
         weeks = [current_week]
     for week in weeks:
