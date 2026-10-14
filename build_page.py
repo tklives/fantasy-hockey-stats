@@ -80,7 +80,18 @@ PAGE = r"""<!doctype html>
 
   .top-grid { display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start; margin-bottom: 16px; }
   .top-grid .card { margin-bottom: 0; }
-  .bench-card { flex: 0 1 440px; min-width: 300px; }
+  .bench-card { flex: 0 1 580px; min-width: 300px; }
+  table.bench th.grp { text-align: center; font-size: 12px; padding-bottom: 2px; border-bottom: 1px solid var(--line); }
+  table.bench th.grp + th.grp, table.bench thead tr:nth-child(2) th:nth-child(5), table.bench td:nth-child(5) { border-left: 1px solid var(--line); }
+  .misses-card { flex: 1 1 340px; min-width: 300px; max-width: 540px; }
+  .misses-card .card-head { align-items: baseline; }
+  table.misses td { padding: 5px 8px; vertical-align: middle; }
+  table.misses tr.miss { cursor: pointer; border-top: 1px solid var(--line); }
+  table.misses tr.miss:first-child { border-top: 0; }
+  table.misses tr.miss:hover td { background: var(--row); }
+  table.misses td.pt { width: 56px; text-align: right; font-weight: 700; font-size: 16px; color: var(--accent); font-variant-numeric: tabular-nums; }
+  table.misses td.who { text-align: left; white-space: normal; }
+  table.misses .sub { display: block; font-size: 12px; color: var(--muted); }
   table.bench th, table.bench td { padding: 5px 12px; }
   table.bench th:nth-child(1), table.bench td:nth-child(1) { width: 36px; text-align: right; color: var(--muted); padding-left: 4px; }
   table.bench th:nth-child(2), table.bench td:nth-child(2) { text-align: left; }
@@ -359,33 +370,83 @@ function teamBody(m, x, sps, maxP, maxAbs, isTop) {
   return tb;
 }
 
-// Compact leaderboard of bench vs. active points. Click a column header to sort by it (click again
-// to flip); the rank column always follows the current order. The choice sticks across weeks.
+// Season-to-date bench/active points per team, counting every saved week up to and including `upTo`.
+function seasonTotals(upTo) {
+  const t = {};
+  for (const wk of WEEKS) {
+    if (wk.week > upTo) continue;
+    for (const m of [...wk.matchups, ...(wk.byes || [])]) for (const s of (m.away == null ? ['home'] : ['home', 'away'])) {
+      const e = (t[m[s]] ||= { bench: 0, active: 0 });
+      for (const d of Object.values(m.days)) { e.bench += d[s].bench_pts; e.active += d[s].active_pts; }
+    }
+  }
+  return t;
+}
+
+// Compact leaderboard of bench vs. active points, for this week and for the season so far. Click a
+// column header to sort by it (click again to flip); the rank column follows the current order, and
+// the choice sticks across weeks.
 let benchSort = { key: 'bench', dir: 'desc' };
-function benchCard(rows) {
+function benchCard(rows, w) {
+  const season = seasonTotals(w.week);
+  for (const x of rows) {
+    x.sbench = season[x.id]?.bench ?? 0;
+    x.sactive = season[x.id]?.active ?? 0;
+  }
   const card = h('section', { class: 'card bench-card' },
     h('div', { class: 'card-head' }, h('h2', {}, 'Points left on the bench')));
+  const num = (v, bench) => h('td', { class: 'num' + (bench ? ' bn' : '') }, fmt(v));
   const draw = () => {
     const sign = benchSort.dir === 'desc' ? -1 : 1;
     const sorted = [...rows].sort((a, b) => sign * (a[benchSort.key] - b[benchSort.key]) || a.name.localeCompare(b.name));
     const th = (key, label) => h('th', {
       class: 'sortable' + (benchSort.key === key ? ` sorted ${benchSort.dir}` : ''),
       'aria-sort': benchSort.key === key ? (benchSort.dir === 'desc' ? 'descending' : 'ascending') : 'none',
-    }, h('button', { class: 'sort', title: 'Sort by ' + label, onclick: () => {
+    }, h('button', { class: 'sort', title: 'Sort by ' + label + (key[0] === 's' ? ' (season)' : ' (this week)'), onclick: () => {
       benchSort = benchSort.key === key ? { key, dir: benchSort.dir === 'desc' ? 'asc' : 'desc' } : { key, dir: 'desc' };
       draw();
     } }, label));
     card.querySelector('table')?.remove();
     card.append(h('table', { class: 'bench' },
-      h('thead', {}, h('tr', {}, h('th', {}, '#'), h('th', {}, 'Team'), th('bench', 'Bench'), th('active', 'Active'))),
+      h('thead', {},
+        h('tr', {}, h('th', {}), h('th', {}), h('th', { class: 'grp', colspan: '2' }, 'This week'),
+          h('th', { class: 'grp', colspan: '2' }, 'Season to date')),
+        h('tr', {}, h('th', {}, '#'), h('th', {}, 'Team'), th('bench', 'Bench'), th('active', 'Active'),
+          th('sbench', 'Bench'), th('sactive', 'Active'))),
       h('tbody', {}, sorted.map((x, i) => h('tr', {},
         h('td', {}, String(i + 1)),
         h('td', {}, x.bye ? `${x.name} (bye)` : x.name),
-        h('td', { class: 'num bn' }, fmt(x.bench)),
-        h('td', { class: 'num' }, fmt(x.active)))))));
+        num(x.bench, true), num(x.active), num(x.sbench, true), num(x.sactive))))));
   };
   draw();
   return card;
+}
+
+// The best individual scores this week from players sitting in a BE or IR slot, i.e. points that
+// didn't count. Click a row for the player's day.
+function missesCard(w) {
+  const rows = [];
+  for (const m of [...w.matchups, ...(w.byes || [])]) for (const s of (m.away == null ? ['home'] : ['home', 'away'])) {
+    for (const d of Object.values(m.days)) {
+      if (d.future) continue;
+      for (const p of d[s].players) {
+        if (BENCH.has(p.slot_id) && p.state === 'played' && p.points > 0) rows.push({ p, date: d.date, team: w.teams[m[s]] });
+      }
+    }
+  }
+  rows.sort((a, b) => b.p.points - a.p.points || a.p.player.localeCompare(b.p.player));
+  const body = rows.slice(0, 8).map(({ p, date, team }) => h('tr', {
+      class: 'miss', title: 'Click for details',
+      onclick: () => openPlayer({ name: p.player, pos: p.pos }, date, p) },
+    h('td', { class: 'pt' }, fmt(p.points)),
+    h('td', { class: 'who' }, p.player, ' ', h('span', { class: 'ppos' }, p.pos), ' ',
+      h('span', { class: 'tag' }, p.slot_id === 8 ? 'IR' : 'BE'),
+      h('span', { class: 'sub' }, `${dayLabel(date)} · ${team}`))));
+  return h('section', { class: 'card misses-card' },
+    h('div', { class: 'card-head' }, h('h2', {}, 'Biggest bench misses'), h('span', { class: 'muted' }, 'this week')),
+    rows.length
+      ? h('table', { class: 'misses' }, h('tbody', {}, body))
+      : h('p', { class: 'muted' }, 'No points scored from the bench yet.'));
 }
 
 function renderWeek(w) {
@@ -411,7 +472,7 @@ function renderWeek(w) {
     const bye = m.away == null;
     const days = sps.map((sp) => m.days[sp]);
     const sides = sidesOf(m).map((s) => ({
-      s, bye, name: w.teams[m[s]],
+      s, bye, id: m[s], name: w.teams[m[s]],
       active: sum(days, (d) => d[s].active_pts), bench: sum(days, (d) => d[s].bench_pts),
     }));
     for (const x of sides) bench.push(x);
@@ -446,7 +507,7 @@ function renderWeek(w) {
   const cards = w.matchups.map(card);
   const byeCards = byes.map(card);              // after the matchups, at the bottom
 
-  root.replaceChildren(h('div', { class: 'top-grid' }, benchCard(bench)), ...cards, ...byeCards);
+  root.replaceChildren(h('div', { class: 'top-grid' }, benchCard(bench, w), missesCard(w)), ...cards, ...byeCards);
   document.getElementById('toggle-all').textContent = 'Expand all teams';
 }
 
