@@ -1,0 +1,10 @@
+# raw ESPN responses and scratch samples from --discover (large, and not needed in the repo)
+cache/
+out/
+# the built page: the nightly workflow builds and publishes it, so it isn't committed
+site/
+# never commit credentials
+.env
+*.env
+.venv/
+__pycache__/

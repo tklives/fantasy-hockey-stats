@@ -1,0 +1,74 @@
+name: Nightly update
+
+on:
+  schedule:
+    # 12:17 UTC = 7:17 AM Central in summer, 6:17 AM in winter. Late enough for ESPN to have rolled
+    # to the new day and for last night's games to be scored. (GitHub may run it a bit late.)
+    - cron: "17 12 * * *"
+  workflow_dispatch:   # the "Run workflow" button, for testing
+
+permissions:
+  contents: write      # commit the updated data/ files
+  pages: write
+  id-token: write
+
+# Never run two at once: they would both try to commit data/.
+concurrency:
+  group: nightly
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Pull from ESPN (previous and current week)
+        env:
+          ESPN_S2: ${{ secrets.ESPN_S2 }}
+          ESPN_SWID: ${{ secrets.ESPN_SWID }}
+        run: python espn_weekly_pull.py --auto
+
+      - name: Build the page
+        run: python build_page.py
+
+      - name: Check no cookie value is in anything we publish
+        env:
+          ESPN_S2: ${{ secrets.ESPN_S2 }}
+          ESPN_SWID: ${{ secrets.ESPN_SWID }}
+        run: python check_no_secrets.py data site
+
+      - name: Commit updated data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data
+          if git diff --cached --quiet; then
+            echo "No data changes."
+          else
+            git commit -m "Nightly data update"
+            git push
+          fi
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    needs: update
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
