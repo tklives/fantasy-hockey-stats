@@ -61,7 +61,9 @@ PAGE = r"""<!doctype html>
           padding: 12px; margin-bottom: 16px; }
   .card-head { display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
                justify-content: space-between; margin-bottom: 8px; }
-  .scroll { overflow-x: auto; }
+  /* Sideways scroll for narrow screens only. Setting one axis to auto makes the other auto too, so a
+     sub-pixel height overflow would show a vertical scrollbar; hide that axis explicitly. */
+  .scroll { overflow-x: auto; overflow-y: hidden; }
   table { border-collapse: collapse; width: 100%; }
   th, td { padding: 3px 5px; text-align: right; white-space: nowrap; vertical-align: top; }
   th { font-weight: 500; color: var(--muted); font-size: 13px; }
