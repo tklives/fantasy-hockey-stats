@@ -88,7 +88,7 @@ PAGE = r"""<!doctype html>
   table.misses tr.miss:hover td { background: var(--row); }
   table.misses td.pt { width: 56px; text-align: right; font-weight: 700; font-size: 16px; color: var(--accent); font-variant-numeric: tabular-nums; }
   table.misses td.who { text-align: left; white-space: normal; }
-  table.misses td.who .tag { margin-left: 6px; }
+  table.misses td.who .tag { margin-left: 6px; color: var(--red); border-color: var(--red); font-weight: 600; }
   table.misses td.team { text-align: left; font-weight: 600; white-space: normal; }
   table.misses td.day { text-align: right; color: var(--muted); font-size: 13px; }
   table.misses td.wk { text-align: right; color: var(--muted); font-size: 13px; font-weight: 600; padding-right: 2px; }
