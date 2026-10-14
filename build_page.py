@@ -374,11 +374,11 @@ function teamBody(m, x, sps, maxP, maxAbs, isTop) {
   return tb;
 }
 
-// Season-to-date bench/active points per team, counting every saved week up to and including `upTo`.
-function seasonTotals(upTo) {
+// Season-to-date bench/active points per team: every saved week, including the one in progress. It
+// deliberately ignores which week is selected, so "Season" means the same thing wherever you browse.
+function seasonTotals() {
   const t = {};
   for (const wk of WEEKS) {
-    if (wk.week > upTo) continue;
     for (const m of [...wk.matchups, ...(wk.byes || [])]) for (const s of (m.away == null ? ['home'] : ['home', 'away'])) {
       const e = (t[m[s]] ||= { bench: 0, active: 0 });
       for (const d of Object.values(m.days)) { e.bench += d[s].bench_pts; e.active += d[s].active_pts; }
@@ -389,9 +389,10 @@ function seasonTotals(upTo) {
 
 // The "This week / Season" control used in the header of both cards at the top. Each card keeps its
 // own choice (`current` and `choose`), so they look and work the same but don't affect each other.
-function scopeToggle(current, choose) {
+function scopeToggle(current, choose, w) {
+  const weekLabel = w === WEEKS[0] ? 'This week' : `Week ${w.week}`;   // WEEKS is newest first
   return h('div', { class: 'seg', role: 'group', 'aria-label': 'Time span' },
-    [['week', 'This week'], ['season', 'Season']].map(([k, label]) => h('button', {
+    [['week', weekLabel], ['season', 'Season']].map(([k, label]) => h('button', {
       'aria-pressed': String(current === k), onclick: () => choose(k) }, label)));
 }
 
@@ -401,7 +402,7 @@ function scopeToggle(current, choose) {
 let benchScope = 'week';
 let benchSort = { key: 'bench', dir: 'desc' };   // 'bench' or 'active', whichever span is showing
 function benchCard(rows, w) {
-  const season = seasonTotals(w.week);
+  const season = seasonTotals();
   for (const x of rows) {
     x.sbench = season[x.id]?.bench ?? 0;
     x.sactive = season[x.id]?.active ?? 0;
@@ -422,12 +423,12 @@ function benchCard(rows, w) {
     } }, label));
     card.replaceChildren(
       h('div', { class: 'card-head' }, h('h2', {}, 'Points left on the bench'),
-        scopeToggle(benchScope, (k) => { benchScope = k; draw(); })),
+        scopeToggle(benchScope, (k) => { benchScope = k; draw(); }, w)),
       h('table', { class: 'bench' },
         h('thead', {}, h('tr', {}, h('th', {}, '#'), h('th', {}, 'Team'), th('bench', 'Bench'), th('active', 'Active'))),
         h('tbody', {}, sorted.map((x, i) => h('tr', {},
           h('td', {}, String(i + 1)),
-          h('td', {}, x.bye ? `${x.name} (bye)` : x.name),
+          h('td', {}, x.bye && benchScope === 'week' ? `${x.name} (bye)` : x.name),   // the bye is that week's
           num(x[pre + 'bench'], true), num(x[pre + 'active']))))));
   };
   draw();
@@ -440,7 +441,7 @@ let missesScope = 'week';
 function missesCard(w) {
   const card = h('section', { class: 'card misses-card' });
   const draw = () => {
-    const weeks = missesScope === 'week' ? [w] : WEEKS.filter((wk) => wk.week <= w.week);
+    const weeks = missesScope === 'week' ? [w] : WEEKS;   // Season = every saved week, whichever one is selected
     const rows = [];
     for (const wk of weeks) for (const m of [...wk.matchups, ...(wk.byes || [])]) {
       for (const s of (m.away == null ? ['home'] : ['home', 'away'])) for (const d of Object.values(m.days)) {
@@ -462,7 +463,7 @@ function missesCard(w) {
       h('td', { class: 'day' }, dayLabel(date))));
     card.replaceChildren(
       h('div', { class: 'card-head' }, h('h2', {}, 'Biggest bench misses'),
-        scopeToggle(missesScope, (k) => { missesScope = k; draw(); })),
+        scopeToggle(missesScope, (k) => { missesScope = k; draw(); }, w)),
       rows.length
         ? h('table', { class: 'misses' }, h('tbody', {}, body))
         : h('p', { class: 'muted' }, 'No points scored from the bench yet.'));
