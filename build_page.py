@@ -78,20 +78,25 @@ PAGE = r"""<!doctype html>
      sub-pixel height overflow would show a vertical scrollbar; hide that axis explicitly. */
   .scroll { overflow-x: auto; overflow-y: hidden; }
 
-  .top-grid { display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start; margin-bottom: 16px; }
+  .top-grid { display: flex; flex-wrap: wrap; gap: 16px; align-items: stretch; margin-bottom: 16px; }
   .top-grid .card { margin-bottom: 0; }
   .bench-card { flex: 0 1 580px; min-width: 300px; }
   table.bench th.grp { text-align: center; font-size: 12px; padding-bottom: 2px; border-bottom: 1px solid var(--line); }
   table.bench th.grp + th.grp, table.bench thead tr:nth-child(2) th:nth-child(5), table.bench td:nth-child(5) { border-left: 1px solid var(--line); }
-  .misses-card { flex: 1 1 340px; min-width: 300px; max-width: 540px; }
-  .misses-card .card-head { align-items: baseline; }
-  table.misses td { padding: 5px 8px; vertical-align: middle; }
+  .misses-card { flex: 1 1 400px; min-width: 300px; }
+  table.misses td { padding: 4px 8px; vertical-align: middle; white-space: nowrap; }
   table.misses tr.miss { cursor: pointer; border-top: 1px solid var(--line); }
   table.misses tr.miss:first-child { border-top: 0; }
   table.misses tr.miss:hover td { background: var(--row); }
   table.misses td.pt { width: 56px; text-align: right; font-weight: 700; font-size: 16px; color: var(--accent); font-variant-numeric: tabular-nums; }
   table.misses td.who { text-align: left; white-space: normal; }
-  table.misses .sub { display: block; font-size: 12px; color: var(--muted); }
+  table.misses td.who .tag { margin-left: 6px; }
+  table.misses td.team { text-align: left; font-weight: 600; white-space: normal; }
+  table.misses td.day { text-align: right; color: var(--muted); font-size: 13px; }
+  .seg { display: inline-flex; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+  .seg button { font: inherit; font-size: 13px; padding: 3px 10px; background: transparent; color: var(--muted); border: 0; cursor: pointer; }
+  .seg button + button { border-left: 1px solid var(--line); }
+  .seg button[aria-pressed="true"] { background: var(--row); color: var(--text); font-weight: 600; }
   table.bench th, table.bench td { padding: 5px 12px; }
   table.bench th:nth-child(1), table.bench td:nth-child(1) { width: 36px; text-align: right; color: var(--muted); padding-left: 4px; }
   table.bench th:nth-child(2), table.bench td:nth-child(2) { text-align: left; }
@@ -422,31 +427,43 @@ function benchCard(rows, w) {
   return card;
 }
 
-// The best individual scores this week from players sitting in a BE or IR slot, i.e. points that
-// didn't count. Click a row for the player's day.
+// The best individual scores from players sitting in a BE or IR slot, i.e. points that didn't count,
+// for this week or the whole season so far. Click a row for the player's day. The toggle sticks
+// across weeks.
+let missesScope = 'week';
 function missesCard(w) {
-  const rows = [];
-  for (const m of [...w.matchups, ...(w.byes || [])]) for (const s of (m.away == null ? ['home'] : ['home', 'away'])) {
-    for (const d of Object.values(m.days)) {
-      if (d.future) continue;
-      for (const p of d[s].players) {
-        if (BENCH.has(p.slot_id) && p.state === 'played' && p.points > 0) rows.push({ p, date: d.date, team: w.teams[m[s]] });
+  const card = h('section', { class: 'card misses-card' });
+  const draw = () => {
+    const weeks = missesScope === 'week' ? [w] : WEEKS.filter((wk) => wk.week <= w.week);
+    const rows = [];
+    for (const wk of weeks) for (const m of [...wk.matchups, ...(wk.byes || [])]) {
+      for (const s of (m.away == null ? ['home'] : ['home', 'away'])) for (const d of Object.values(m.days)) {
+        if (d.future) continue;
+        for (const p of d[s].players) {
+          if (BENCH.has(p.slot_id) && p.state === 'played' && p.points > 0) rows.push({ p, date: d.date, team: wk.teams[m[s]] });
+        }
       }
     }
-  }
-  rows.sort((a, b) => b.p.points - a.p.points || a.p.player.localeCompare(b.p.player));
-  const body = rows.slice(0, 8).map(({ p, date, team }) => h('tr', {
-      class: 'miss', title: 'Click for details',
-      onclick: () => openPlayer({ name: p.player, pos: p.pos }, date, p) },
-    h('td', { class: 'pt' }, fmt(p.points)),
-    h('td', { class: 'who' }, p.player, ' ', h('span', { class: 'ppos' }, p.pos), ' ',
-      h('span', { class: 'tag' }, p.slot_id === 8 ? 'IR' : 'BE'),
-      h('span', { class: 'sub' }, `${dayLabel(date)} · ${team}`))));
-  return h('section', { class: 'card misses-card' },
-    h('div', { class: 'card-head' }, h('h2', {}, 'Biggest bench misses'), h('span', { class: 'muted' }, 'this week')),
-    rows.length
-      ? h('table', { class: 'misses' }, h('tbody', {}, body))
-      : h('p', { class: 'muted' }, 'No points scored from the bench yet.'));
+    rows.sort((a, b) => b.p.points - a.p.points || a.p.player.localeCompare(b.p.player));
+    const body = rows.slice(0, 8).map(({ p, date, team }) => h('tr', {
+        class: 'miss', title: 'Click for details',
+        onclick: () => openPlayer({ name: p.player, pos: p.pos }, date, p) },
+      h('td', { class: 'pt' }, fmt(p.points)),
+      h('td', { class: 'who' }, p.player, ' ', h('span', { class: 'ppos' }, p.pos),
+        p.slot_id === 8 && h('span', { class: 'tag' }, 'IR')),   // every row is a bench slot; only IR is worth marking
+      h('td', { class: 'team' }, team),
+      h('td', { class: 'day' }, dayLabel(date))));
+    const seg = h('div', { class: 'seg', role: 'group', 'aria-label': 'Time span' },
+      [['week', 'This week'], ['season', 'Season']].map(([k, label]) => h('button', {
+        'aria-pressed': String(missesScope === k), onclick: () => { missesScope = k; draw(); } }, label)));
+    card.replaceChildren(
+      h('div', { class: 'card-head' }, h('h2', {}, 'Biggest bench misses'), seg),
+      rows.length
+        ? h('table', { class: 'misses' }, h('tbody', {}, body))
+        : h('p', { class: 'muted' }, 'No points scored from the bench yet.'));
+  };
+  draw();
+  return card;
 }
 
 function renderWeek(w) {
