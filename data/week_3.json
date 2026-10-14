@@ -1704,7 +1704,7 @@
         "slot_id": 4,
         "slot": "D",
         "state": "nogame",
-        "injury": "DAY_TO_DAY",
+        "injury": "OUT",
         "points": 0.0,
         "stats": {}
        },
@@ -4070,6 +4070,701 @@
       "espn_reported": null
      },
      "away": {
+      "players": [],
+      "active_pts": 0.0,
+      "bench_pts": 0.0,
+      "espn_reported": null
+     }
+    }
+   }
+  }
+ ],
+ "byes": [
+  {
+   "home": 6,
+   "away": null,
+   "days": {
+    "14": {
+     "date": "2026-10-12",
+     "today": false,
+     "home": {
+      "players": [
+       {
+        "id": 5206628,
+        "player": "Macklin Celebrini",
+        "pos": "C",
+        "slot_id": 7,
+        "slot": "BE",
+        "state": "nogame",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 2968772,
+        "player": "Filip Forsberg",
+        "pos": "LW",
+        "slot_id": 1,
+        "slot": "LW",
+        "state": "nogame",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 4319858,
+        "player": "Brady Tkachuk",
+        "pos": "LW",
+        "slot_id": 6,
+        "slot": "UTIL",
+        "state": "played",
+        "injury": "ACTIVE",
+        "points": 2.5,
+        "stats": {
+         "A": 1.0,
+         "SOG": 3.0,
+         "HIT": 7.0,
+         "PPP": 1.0
+        }
+       },
+       {
+        "id": 4024988,
+        "player": "Tage Thompson",
+        "pos": "C",
+        "slot_id": 0,
+        "slot": "C",
+        "state": "played",
+        "injury": "ACTIVE",
+        "points": 4.3,
+        "stats": {
+         "G": 1.0,
+         "A": 1.0,
+         "SOG": 1.0,
+         "HIT": 2.0,
+         "BLK": 1.0,
+         "PPP": 1.0
+        }
+       },
+       {
+        "id": 4024854,
+        "player": "Matthew Tkachuk",
+        "pos": "RW",
+        "slot_id": 2,
+        "slot": "RW",
+        "state": "played",
+        "injury": "ACTIVE",
+        "points": 1.8,
+        "stats": {
+         "A": 1.0,
+         "SOG": 2.0,
+         "HIT": 1.0,
+         "PPP": 1.0
+        }
+       },
+       {
+        "id": 4233586,
+        "player": "Martin Necas",
+        "pos": "RW",
+        "slot_id": 3,
+        "slot": "F",
+        "state": "nogame",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 4024857,
+        "player": "Clayton Keller",
+        "pos": "LW",
+        "slot_id": 3,
+        "slot": "F",
+        "state": "nogame",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 5622,
+        "player": "Scott Wedgewood",
+        "pos": "G",
+        "slot_id": 5,
+        "slot": "G",
+        "state": "nogame",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 3101,
+        "player": "Alex Ovechkin",
+        "pos": "LW",
+        "slot_id": 7,
+        "slot": "BE",
+        "state": "nogame",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 4233555,
+        "player": "Nico Hischier",
+        "pos": "C",
+        "slot_id": 3,
+        "slot": "F",
+        "state": "played",
+        "injury": "ACTIVE",
+        "points": 0.1,
+        "stats": {
+         "SOG": 1.0
+        }
+       },
+       {
+        "id": 3899978,
+        "player": "Timo Meier",
+        "pos": "LW",
+        "slot_id": 7,
+        "slot": "BE",
+        "state": "played",
+        "injury": "ACTIVE",
+        "points": 0.2,
+        "stats": {
+         "SOG": 1.0,
+         "HIT": 1.0
+        }
+       },
+       {
+        "id": 3149843,
+        "player": "Darren Raddysh",
+        "pos": "D",
+        "slot_id": 4,
+        "slot": "D",
+        "state": "nogame",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 3900219,
+        "player": "Thomas Chabot",
+        "pos": "D",
+        "slot_id": 4,
+        "slot": "D",
+        "state": "played",
+        "injury": "ACTIVE",
+        "points": 3.9,
+        "stats": {
+         "A": 1.0,
+         "SOG": 2.0,
+         "HIT": 2.0,
+         "BLK": 5.0
+        }
+       },
+       {
+        "id": 5164,
+        "player": "Erik Karlsson",
+        "pos": "D",
+        "slot_id": 4,
+        "slot": "D",
+        "state": "nogame",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 4587909,
+        "player": "Joel Hofer",
+        "pos": "G",
+        "slot_id": 5,
+        "slot": "G",
+        "state": "nogame",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 4874722,
+        "player": "Brandt Clarke",
+        "pos": "D",
+        "slot_id": 4,
+        "slot": "D",
+        "state": "nogame",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       }
+      ],
+      "active_pts": 12.6,
+      "bench_pts": 0.2,
+      "espn_reported": 12.6
+     }
+    },
+    "15": {
+     "date": "2026-10-13",
+     "today": false,
+     "home": {
+      "players": [
+       {
+        "id": 5206628,
+        "player": "Macklin Celebrini",
+        "pos": "C",
+        "slot_id": 7,
+        "slot": "BE",
+        "state": "played",
+        "injury": "ACTIVE",
+        "points": 4.5,
+        "stats": {
+         "G": 1.0,
+         "A": 1.0,
+         "SOG": 5.0,
+         "PPP": 2.0
+        }
+       },
+       {
+        "id": 2968772,
+        "player": "Filip Forsberg",
+        "pos": "LW",
+        "slot_id": 1,
+        "slot": "LW",
+        "state": "played",
+        "injury": "ACTIVE",
+        "points": 2.2,
+        "stats": {
+         "A": 1.0,
+         "SOG": 7.0,
+         "BLK": 1.0
+        }
+       },
+       {
+        "id": 4319858,
+        "player": "Brady Tkachuk",
+        "pos": "LW",
+        "slot_id": 6,
+        "slot": "UTIL",
+        "state": "played",
+        "injury": "ACTIVE",
+        "points": 9.0,
+        "stats": {
+         "G": 3.0,
+         "A": 1.0,
+         "SOG": 4.0,
+         "HIT": 1.0,
+         "PPP": 3.0
+        }
+       },
+       {
+        "id": 4024988,
+        "player": "Tage Thompson",
+        "pos": "C",
+        "slot_id": 0,
+        "slot": "C",
+        "state": "played",
+        "injury": "ACTIVE",
+        "points": 0.6,
+        "stats": {
+         "SOG": 1.0,
+         "BLK": 1.0
+        }
+       },
+       {
+        "id": 4024854,
+        "player": "Matthew Tkachuk",
+        "pos": "RW",
+        "slot_id": 2,
+        "slot": "RW",
+        "state": "played",
+        "injury": "ACTIVE",
+        "points": 7.1,
+        "stats": {
+         "A": 5.0,
+         "SOG": 1.0,
+         "PPP": 4.0
+        }
+       },
+       {
+        "id": 4233586,
+        "player": "Martin Necas",
+        "pos": "RW",
+        "slot_id": 3,
+        "slot": "F",
+        "state": "played",
+        "injury": "ACTIVE",
+        "points": 4.7,
+        "stats": {
+         "G": 2.0,
+         "SOG": 2.0,
+         "PPP": 1.0
+        }
+       },
+       {
+        "id": 4024857,
+        "player": "Clayton Keller",
+        "pos": "LW",
+        "slot_id": 3,
+        "slot": "F",
+        "state": "played",
+        "injury": "ACTIVE",
+        "points": 1.5,
+        "stats": {
+         "A": 1.0,
+         "BLK": 1.0
+        }
+       },
+       {
+        "id": 5622,
+        "player": "Scott Wedgewood",
+        "pos": "G",
+        "slot_id": 5,
+        "slot": "G",
+        "state": "dnp",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 3101,
+        "player": "Alex Ovechkin",
+        "pos": "LW",
+        "slot_id": 7,
+        "slot": "BE",
+        "state": "played",
+        "injury": "ACTIVE",
+        "points": 0.2,
+        "stats": {
+         "SOG": 2.0
+        }
+       },
+       {
+        "id": 4233555,
+        "player": "Nico Hischier",
+        "pos": "C",
+        "slot_id": 3,
+        "slot": "F",
+        "state": "played",
+        "injury": "ACTIVE",
+        "points": 3.3,
+        "stats": {
+         "G": 1.0,
+         "SOG": 3.0,
+         "BLK": 1.0,
+         "PPP": 1.0
+        }
+       },
+       {
+        "id": 3899978,
+        "player": "Timo Meier",
+        "pos": "LW",
+        "slot_id": 7,
+        "slot": "BE",
+        "state": "played",
+        "injury": "ACTIVE",
+        "points": 0.3,
+        "stats": {
+         "SOG": 2.0,
+         "HIT": 1.0
+        }
+       },
+       {
+        "id": 3149843,
+        "player": "Darren Raddysh",
+        "pos": "D",
+        "slot_id": 4,
+        "slot": "D",
+        "state": "played",
+        "injury": "ACTIVE",
+        "points": 1.9,
+        "stats": {
+         "A": 1.0,
+         "SOG": 3.0,
+         "HIT": 1.0,
+         "BLK": 1.0
+        }
+       },
+       {
+        "id": 3900219,
+        "player": "Thomas Chabot",
+        "pos": "D",
+        "slot_id": 4,
+        "slot": "D",
+        "state": "played",
+        "injury": "ACTIVE",
+        "points": 1.1,
+        "stats": {
+         "SOG": 1.0,
+         "BLK": 2.0
+        }
+       },
+       {
+        "id": 5164,
+        "player": "Erik Karlsson",
+        "pos": "D",
+        "slot_id": 4,
+        "slot": "D",
+        "state": "played",
+        "injury": "ACTIVE",
+        "points": 2.1,
+        "stats": {
+         "A": 2.0,
+         "SOG": 1.0
+        }
+       },
+       {
+        "id": 4587909,
+        "player": "Joel Hofer",
+        "pos": "G",
+        "slot_id": 5,
+        "slot": "G",
+        "state": "played",
+        "injury": "ACTIVE",
+        "points": 3.0,
+        "stats": {
+         "W": 1.0,
+         "SA": 17.0,
+         "GA": 2.0,
+         "SV": 15.0,
+         "SV%": 0.882
+        }
+       },
+       {
+        "id": 4874722,
+        "player": "Brandt Clarke",
+        "pos": "D",
+        "slot_id": 4,
+        "slot": "D",
+        "state": "played",
+        "injury": "ACTIVE",
+        "points": 2.6,
+        "stats": {
+         "G": 1.0,
+         "SOG": 6.0
+        }
+       }
+      ],
+      "active_pts": 39.1,
+      "bench_pts": 5.0,
+      "espn_reported": 39.1
+     }
+    },
+    "16": {
+     "date": "2026-10-14",
+     "today": true,
+     "home": {
+      "players": [
+       {
+        "id": 5206628,
+        "player": "Macklin Celebrini",
+        "pos": "C",
+        "slot_id": 7,
+        "slot": "BE",
+        "state": "pending",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 2968772,
+        "player": "Filip Forsberg",
+        "pos": "LW",
+        "slot_id": 1,
+        "slot": "LW",
+        "state": "pending",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 4319858,
+        "player": "Brady Tkachuk",
+        "pos": "LW",
+        "slot_id": 6,
+        "slot": "UTIL",
+        "state": "pending",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 4024988,
+        "player": "Tage Thompson",
+        "pos": "C",
+        "slot_id": 0,
+        "slot": "C",
+        "state": "pending",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 4024854,
+        "player": "Matthew Tkachuk",
+        "pos": "RW",
+        "slot_id": 2,
+        "slot": "RW",
+        "state": "pending",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 4233586,
+        "player": "Martin Necas",
+        "pos": "RW",
+        "slot_id": 3,
+        "slot": "F",
+        "state": "pending",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 4024857,
+        "player": "Clayton Keller",
+        "pos": "LW",
+        "slot_id": 3,
+        "slot": "F",
+        "state": "pending",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 5622,
+        "player": "Scott Wedgewood",
+        "pos": "G",
+        "slot_id": 5,
+        "slot": "G",
+        "state": "pending",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 3101,
+        "player": "Alex Ovechkin",
+        "pos": "LW",
+        "slot_id": 7,
+        "slot": "BE",
+        "state": "pending",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 4233555,
+        "player": "Nico Hischier",
+        "pos": "C",
+        "slot_id": 3,
+        "slot": "F",
+        "state": "pending",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 3899978,
+        "player": "Timo Meier",
+        "pos": "LW",
+        "slot_id": 7,
+        "slot": "BE",
+        "state": "pending",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 3149843,
+        "player": "Darren Raddysh",
+        "pos": "D",
+        "slot_id": 4,
+        "slot": "D",
+        "state": "pending",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 3900219,
+        "player": "Thomas Chabot",
+        "pos": "D",
+        "slot_id": 4,
+        "slot": "D",
+        "state": "pending",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 5164,
+        "player": "Erik Karlsson",
+        "pos": "D",
+        "slot_id": 4,
+        "slot": "D",
+        "state": "pending",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 4587909,
+        "player": "Joel Hofer",
+        "pos": "G",
+        "slot_id": 5,
+        "slot": "G",
+        "state": "pending",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 4874722,
+        "player": "Brandt Clarke",
+        "pos": "D",
+        "slot_id": 4,
+        "slot": "D",
+        "state": "pending",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       }
+      ],
+      "active_pts": 0.0,
+      "bench_pts": 0.0,
+      "espn_reported": 0.0
+     }
+    },
+    "17": {
+     "date": "2026-10-15",
+     "future": true,
+     "home": {
+      "players": [],
+      "active_pts": 0.0,
+      "bench_pts": 0.0,
+      "espn_reported": null
+     }
+    },
+    "18": {
+     "date": "2026-10-16",
+     "future": true,
+     "home": {
+      "players": [],
+      "active_pts": 0.0,
+      "bench_pts": 0.0,
+      "espn_reported": null
+     }
+    },
+    "19": {
+     "date": "2026-10-17",
+     "future": true,
+     "home": {
+      "players": [],
+      "active_pts": 0.0,
+      "bench_pts": 0.0,
+      "espn_reported": null
+     }
+    },
+    "20": {
+     "date": "2026-10-18",
+     "future": true,
+     "home": {
       "players": [],
       "active_pts": 0.0,
       "bench_pts": 0.0,

@@ -110,7 +110,7 @@
         "slot_id": 4,
         "slot": "D",
         "state": "played",
-        "injury": "OUT",
+        "injury": "DAY_TO_DAY",
         "points": 1.0,
         "stats": {
          "A": 1.0
@@ -325,7 +325,7 @@
         "slot_id": 4,
         "slot": "D",
         "state": "dnp",
-        "injury": "OUT",
+        "injury": "DAY_TO_DAY",
         "points": 0.0,
         "stats": {}
        },
@@ -536,7 +536,7 @@
         "slot_id": 4,
         "slot": "D",
         "state": "nogame",
-        "injury": "OUT",
+        "injury": "DAY_TO_DAY",
         "points": 0.0,
         "stats": {}
        },
@@ -793,7 +793,7 @@
         "slot_id": 4,
         "slot": "D",
         "state": "dnp",
-        "injury": "OUT",
+        "injury": "DAY_TO_DAY",
         "points": 0.0,
         "stats": {}
        },
@@ -999,7 +999,7 @@
         "slot_id": 4,
         "slot": "D",
         "state": "played",
-        "injury": "OUT",
+        "injury": "DAY_TO_DAY",
         "points": 0.6,
         "stats": {
          "SOG": 1.0,
@@ -1212,7 +1212,7 @@
         "slot_id": 4,
         "slot": "D",
         "state": "nogame",
-        "injury": "OUT",
+        "injury": "DAY_TO_DAY",
         "points": 0.0,
         "stats": {}
        },
@@ -1421,7 +1421,7 @@
         "slot_id": 4,
         "slot": "D",
         "state": "nogame",
-        "injury": "OUT",
+        "injury": "DAY_TO_DAY",
         "points": 0.0,
         "stats": {}
        },
@@ -1662,7 +1662,7 @@
         "slot_id": 4,
         "slot": "D",
         "state": "dnp",
-        "injury": "OUT",
+        "injury": "DAY_TO_DAY",
         "points": 0.0,
         "stats": {}
        },
@@ -1859,7 +1859,7 @@
         "slot_id": 4,
         "slot": "D",
         "state": "dnp",
-        "injury": "OUT",
+        "injury": "DAY_TO_DAY",
         "points": 0.0,
         "stats": {}
        },
@@ -2080,7 +2080,7 @@
         "slot_id": 4,
         "slot": "D",
         "state": "nogame",
-        "injury": "OUT",
+        "injury": "DAY_TO_DAY",
         "points": 0.0,
         "stats": {}
        },
@@ -2301,7 +2301,7 @@
         "slot_id": 4,
         "slot": "D",
         "state": "nogame",
-        "injury": "OUT",
+        "injury": "DAY_TO_DAY",
         "points": 0.0,
         "stats": {}
        },
@@ -2547,7 +2547,7 @@
         "slot_id": 4,
         "slot": "D",
         "state": "dnp",
-        "injury": "OUT",
+        "injury": "DAY_TO_DAY",
         "points": 0.0,
         "stats": {}
        },
@@ -2751,7 +2751,7 @@
         "slot_id": 4,
         "slot": "D",
         "state": "nogame",
-        "injury": "OUT",
+        "injury": "DAY_TO_DAY",
         "points": 0.0,
         "stats": {}
        },
@@ -2967,7 +2967,7 @@
         "slot_id": 4,
         "slot": "D",
         "state": "nogame",
-        "injury": "OUT",
+        "injury": "DAY_TO_DAY",
         "points": 0.0,
         "stats": {}
        },
@@ -3366,7 +3366,7 @@
         "slot_id": 4,
         "slot": "D",
         "state": "nogame",
-        "injury": "OUT",
+        "injury": "DAY_TO_DAY",
         "points": 0.0,
         "stats": {}
        },
@@ -3388,7 +3388,7 @@
         "slot_id": 3,
         "slot": "F",
         "state": "nogame",
-        "injury": "OUT",
+        "injury": "DAY_TO_DAY",
         "points": 0.0,
         "stats": {}
        },
@@ -3798,7 +3798,7 @@
         "slot_id": 4,
         "slot": "D",
         "state": "played",
-        "injury": "OUT",
+        "injury": "DAY_TO_DAY",
         "points": 3.4,
         "stats": {
          "A": 1.0,
@@ -3825,7 +3825,7 @@
         "slot_id": 3,
         "slot": "F",
         "state": "nogame",
-        "injury": "OUT",
+        "injury": "DAY_TO_DAY",
         "points": 0.0,
         "stats": {}
        },
@@ -4221,7 +4221,7 @@
         "slot_id": 4,
         "slot": "D",
         "state": "nogame",
-        "injury": "OUT",
+        "injury": "DAY_TO_DAY",
         "points": 0.0,
         "stats": {}
        },
@@ -4243,7 +4243,7 @@
         "slot_id": 3,
         "slot": "F",
         "state": "played",
-        "injury": "OUT",
+        "injury": "DAY_TO_DAY",
         "points": 0.7,
         "stats": {
          "SOG": 7.0
@@ -4653,7 +4653,7 @@
         "slot_id": 4,
         "slot": "D",
         "state": "played",
-        "injury": "OUT",
+        "injury": "DAY_TO_DAY",
         "points": 2.2,
         "stats": {
          "SOG": 1.0,
@@ -4685,7 +4685,7 @@
         "slot_id": 7,
         "slot": "BE",
         "state": "nogame",
-        "injury": "OUT",
+        "injury": "DAY_TO_DAY",
         "points": 0.0,
         "stats": {}
        },
@@ -5089,7 +5089,7 @@
         "slot_id": 4,
         "slot": "D",
         "state": "nogame",
-        "injury": "OUT",
+        "injury": "DAY_TO_DAY",
         "points": 0.0,
         "stats": {}
        },
@@ -5111,7 +5111,7 @@
         "slot_id": 3,
         "slot": "F",
         "state": "played",
-        "injury": "OUT",
+        "injury": "DAY_TO_DAY",
         "points": 0.6,
         "stats": {
          "SOG": 1.0,
@@ -5557,7 +5557,7 @@
         "slot_id": 4,
         "slot": "D",
         "state": "played",
-        "injury": "OUT",
+        "injury": "DAY_TO_DAY",
         "points": 4.4,
         "stats": {
          "A": 1.0,
@@ -5589,7 +5589,7 @@
         "slot_id": 3,
         "slot": "F",
         "state": "played",
-        "injury": "OUT",
+        "injury": "DAY_TO_DAY",
         "points": 0.0,
         "stats": {}
        },
@@ -5984,7 +5984,7 @@
         "slot_id": 4,
         "slot": "D",
         "state": "nogame",
-        "injury": "OUT",
+        "injury": "DAY_TO_DAY",
         "points": 0.0,
         "stats": {}
        },
@@ -6006,7 +6006,7 @@
         "slot_id": 3,
         "slot": "F",
         "state": "nogame",
-        "injury": "OUT",
+        "injury": "DAY_TO_DAY",
         "points": 0.0,
         "stats": {}
        },
@@ -6324,7 +6324,7 @@
         "slot_id": 4,
         "slot": "D",
         "state": "nogame",
-        "injury": "OUT",
+        "injury": "DAY_TO_DAY",
         "points": 0.0,
         "stats": {}
        },
@@ -6346,7 +6346,7 @@
         "slot_id": 2,
         "slot": "RW",
         "state": "played",
-        "injury": "ACTIVE",
+        "injury": "OUT",
         "points": 0.9,
         "stats": {
          "SOG": 3.0,
@@ -6760,7 +6760,7 @@
         "slot_id": 6,
         "slot": "UTIL",
         "state": "nogame",
-        "injury": "OUT",
+        "injury": "DAY_TO_DAY",
         "points": 0.0,
         "stats": {}
        },
@@ -6785,7 +6785,7 @@
         "slot_id": 3,
         "slot": "F",
         "state": "nogame",
-        "injury": "ACTIVE",
+        "injury": "OUT",
         "points": 0.0,
         "stats": {}
        },
@@ -6956,7 +6956,7 @@
         "slot_id": 5,
         "slot": "G",
         "state": "played",
-        "injury": "ACTIVE",
+        "injury": "DAY_TO_DAY",
         "points": 5.8,
         "stats": {
          "W": 1.0,
@@ -7188,7 +7188,7 @@
         "slot_id": 6,
         "slot": "UTIL",
         "state": "played",
-        "injury": "OUT",
+        "injury": "DAY_TO_DAY",
         "points": 1.9,
         "stats": {
          "SOG": 4.0,
@@ -7213,7 +7213,7 @@
         "slot_id": 3,
         "slot": "F",
         "state": "nogame",
-        "injury": "ACTIVE",
+        "injury": "OUT",
         "points": 0.0,
         "stats": {}
        },
@@ -7366,7 +7366,7 @@
         "slot_id": 5,
         "slot": "G",
         "state": "nogame",
-        "injury": "ACTIVE",
+        "injury": "DAY_TO_DAY",
         "points": 0.0,
         "stats": {}
        }
@@ -7619,7 +7619,7 @@
         "slot_id": 6,
         "slot": "UTIL",
         "state": "played",
-        "injury": "OUT",
+        "injury": "DAY_TO_DAY",
         "points": 5.2,
         "stats": {
          "G": 2.0,
@@ -7645,7 +7645,7 @@
         "slot_id": 3,
         "slot": "F",
         "state": "played",
-        "injury": "ACTIVE",
+        "injury": "OUT",
         "points": 3.6,
         "stats": {
          "A": 3.0,
@@ -7826,7 +7826,7 @@
         "slot_id": 5,
         "slot": "G",
         "state": "nogame",
-        "injury": "ACTIVE",
+        "injury": "DAY_TO_DAY",
         "points": 0.0,
         "stats": {}
        }
@@ -8047,7 +8047,7 @@
         "slot_id": 4,
         "slot": "D",
         "state": "nogame",
-        "injury": "OUT",
+        "injury": "DAY_TO_DAY",
         "points": 0.0,
         "stats": {}
        },
@@ -8074,7 +8074,7 @@
         "slot_id": 3,
         "slot": "F",
         "state": "nogame",
-        "injury": "ACTIVE",
+        "injury": "OUT",
         "points": 0.0,
         "stats": {}
        },
@@ -8224,7 +8224,7 @@
         "slot_id": 5,
         "slot": "G",
         "state": "nogame",
-        "injury": "ACTIVE",
+        "injury": "DAY_TO_DAY",
         "points": 0.0,
         "stats": {}
        }
@@ -8497,7 +8497,7 @@
         "slot_id": 4,
         "slot": "D",
         "state": "played",
-        "injury": "OUT",
+        "injury": "DAY_TO_DAY",
         "points": 1.3,
         "stats": {
          "A": 1.0,
@@ -8525,7 +8525,7 @@
         "slot_id": 6,
         "slot": "UTIL",
         "state": "played",
-        "injury": "ACTIVE",
+        "injury": "OUT",
         "points": 0.2,
         "stats": {
          "SOG": 1.0,
@@ -8924,7 +8924,7 @@
         "slot_id": 4,
         "slot": "D",
         "state": "nogame",
-        "injury": "OUT",
+        "injury": "DAY_TO_DAY",
         "points": 0.0,
         "stats": {}
        },
@@ -8946,7 +8946,7 @@
         "slot_id": 6,
         "slot": "UTIL",
         "state": "nogame",
-        "injury": "ACTIVE",
+        "injury": "OUT",
         "points": 0.0,
         "stats": {}
        },
@@ -9097,6 +9097,1498 @@
       "active_pts": 1.8,
       "bench_pts": 1.0,
       "espn_reported": 1.8
+     }
+    }
+   }
+  }
+ ],
+ "byes": [
+  {
+   "home": 2,
+   "away": null,
+   "days": {
+    "7": {
+     "date": "2026-10-05",
+     "today": false,
+     "home": {
+      "players": [
+       {
+        "id": 4565233,
+        "player": "Matt Boldy",
+        "pos": "LW",
+        "slot_id": 1,
+        "slot": "LW",
+        "state": "nogame",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 4565236,
+        "player": "Cole Caufield",
+        "pos": "LW",
+        "slot_id": 3,
+        "slot": "F",
+        "state": "nogame",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 4352722,
+        "player": "Evan Bouchard",
+        "pos": "D",
+        "slot_id": 4,
+        "slot": "D",
+        "state": "nogame",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 3648002,
+        "player": "Jack Eichel",
+        "pos": "C",
+        "slot_id": 0,
+        "slot": "C",
+        "state": "nogame",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 3904173,
+        "player": "Sebastian Aho",
+        "pos": "C",
+        "slot_id": 3,
+        "slot": "F",
+        "state": "nogame",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 4196914,
+        "player": "Jake Oettinger",
+        "pos": "G",
+        "slot_id": 5,
+        "slot": "G",
+        "state": "played",
+        "injury": "ACTIVE",
+        "points": 9.6,
+        "stats": {
+         "W": 1.0,
+         "SA": 13.0,
+         "SV": 13.0,
+         "SO": 1.0,
+         "SV%": 1.0
+        }
+       },
+       {
+        "id": 4024950,
+        "player": "Jakob Chychrun",
+        "pos": "D",
+        "slot_id": 4,
+        "slot": "D",
+        "state": "nogame",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 3899937,
+        "player": "Mitch Marner",
+        "pos": "RW",
+        "slot_id": 2,
+        "slot": "RW",
+        "state": "nogame",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 3114722,
+        "player": "Sam Reinhart",
+        "pos": "RW",
+        "slot_id": 3,
+        "slot": "F",
+        "state": "nogame",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 3151297,
+        "player": "Igor Shesterkin",
+        "pos": "G",
+        "slot_id": 5,
+        "slot": "G",
+        "state": "nogame",
+        "injury": "INJURY_RESERVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 4233536,
+        "player": "Miro Heiskanen",
+        "pos": "D",
+        "slot_id": 4,
+        "slot": "D",
+        "state": "played",
+        "injury": "ACTIVE",
+        "points": 2.2,
+        "stats": {
+         "G": 1.0,
+         "SOG": 2.0
+        }
+       },
+       {
+        "id": 5798,
+        "player": "Brock Nelson",
+        "pos": "C",
+        "slot_id": 6,
+        "slot": "UTIL",
+        "state": "nogame",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 4272674,
+        "player": "Filip Gustavsson",
+        "pos": "G",
+        "slot_id": 7,
+        "slot": "BE",
+        "state": "nogame",
+        "injury": "INJURY_RESERVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 4024868,
+        "player": "Mikhail Sergachev",
+        "pos": "D",
+        "slot_id": 4,
+        "slot": "D",
+        "state": "nogame",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 3114770,
+        "player": "Nick Schmaltz",
+        "pos": "C",
+        "slot_id": 7,
+        "slot": "BE",
+        "state": "nogame",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 3904091,
+        "player": "Joel Eriksson Ek",
+        "pos": "C",
+        "slot_id": 7,
+        "slot": "BE",
+        "state": "nogame",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       }
+      ],
+      "active_pts": 11.8,
+      "bench_pts": 0.0,
+      "espn_reported": 11.8
+     }
+    },
+    "8": {
+     "date": "2026-10-06",
+     "today": false,
+     "home": {
+      "players": [
+       {
+        "id": 4565233,
+        "player": "Matt Boldy",
+        "pos": "LW",
+        "slot_id": 1,
+        "slot": "LW",
+        "state": "played",
+        "injury": "ACTIVE",
+        "points": 2.2,
+        "stats": {
+         "SOG": 7.0,
+         "BLK": 3.0
+        }
+       },
+       {
+        "id": 4565236,
+        "player": "Cole Caufield",
+        "pos": "LW",
+        "slot_id": 3,
+        "slot": "F",
+        "state": "played",
+        "injury": "ACTIVE",
+        "points": 0.7,
+        "stats": {
+         "SOG": 1.0,
+         "HIT": 1.0,
+         "BLK": 1.0
+        }
+       },
+       {
+        "id": 4352722,
+        "player": "Evan Bouchard",
+        "pos": "D",
+        "slot_id": 4,
+        "slot": "D",
+        "state": "nogame",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 3648002,
+        "player": "Jack Eichel",
+        "pos": "C",
+        "slot_id": 0,
+        "slot": "C",
+        "state": "played",
+        "injury": "ACTIVE",
+        "points": 6.7,
+        "stats": {
+         "G": 1.0,
+         "A": 3.0,
+         "SOG": 2.0,
+         "PPP": 2.0,
+         "SHP": 1.0
+        }
+       },
+       {
+        "id": 3904173,
+        "player": "Sebastian Aho",
+        "pos": "C",
+        "slot_id": 3,
+        "slot": "F",
+        "state": "played",
+        "injury": "ACTIVE",
+        "points": 5.0,
+        "stats": {
+         "G": 1.0,
+         "A": 2.0,
+         "SOG": 3.0,
+         "HIT": 2.0,
+         "PPP": 1.0
+        }
+       },
+       {
+        "id": 4196914,
+        "player": "Jake Oettinger",
+        "pos": "G",
+        "slot_id": 5,
+        "slot": "G",
+        "state": "nogame",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 4024950,
+        "player": "Jakob Chychrun",
+        "pos": "D",
+        "slot_id": 4,
+        "slot": "D",
+        "state": "nogame",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 3899937,
+        "player": "Mitch Marner",
+        "pos": "RW",
+        "slot_id": 2,
+        "slot": "RW",
+        "state": "played",
+        "injury": "ACTIVE",
+        "points": 0.7,
+        "stats": {
+         "SOG": 2.0,
+         "BLK": 1.0
+        }
+       },
+       {
+        "id": 3114722,
+        "player": "Sam Reinhart",
+        "pos": "RW",
+        "slot_id": 3,
+        "slot": "F",
+        "state": "played",
+        "injury": "ACTIVE",
+        "points": 0.3,
+        "stats": {
+         "SOG": 3.0
+        }
+       },
+       {
+        "id": 3151297,
+        "player": "Igor Shesterkin",
+        "pos": "G",
+        "slot_id": 5,
+        "slot": "G",
+        "state": "played",
+        "injury": "INJURY_RESERVE",
+        "points": 3.4,
+        "stats": {
+         "W": 1.0,
+         "SA": 19.0,
+         "GA": 2.0,
+         "SV": 17.0,
+         "SV%": 0.895
+        }
+       },
+       {
+        "id": 4233536,
+        "player": "Miro Heiskanen",
+        "pos": "D",
+        "slot_id": 4,
+        "slot": "D",
+        "state": "nogame",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 5798,
+        "player": "Brock Nelson",
+        "pos": "C",
+        "slot_id": 6,
+        "slot": "UTIL",
+        "state": "nogame",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 4272674,
+        "player": "Filip Gustavsson",
+        "pos": "G",
+        "slot_id": 7,
+        "slot": "BE",
+        "state": "dnp",
+        "injury": "INJURY_RESERVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 4024868,
+        "player": "Mikhail Sergachev",
+        "pos": "D",
+        "slot_id": 4,
+        "slot": "D",
+        "state": "played",
+        "injury": "ACTIVE",
+        "points": 4.2,
+        "stats": {
+         "A": 3.0,
+         "SOG": 2.0,
+         "PPP": 2.0
+        }
+       },
+       {
+        "id": 3114770,
+        "player": "Nick Schmaltz",
+        "pos": "C",
+        "slot_id": 7,
+        "slot": "BE",
+        "state": "played",
+        "injury": "ACTIVE",
+        "points": 5.1,
+        "stats": {
+         "G": 1.0,
+         "A": 2.0,
+         "SOG": 4.0,
+         "HIT": 2.0,
+         "PPP": 1.0
+        }
+       },
+       {
+        "id": 3904091,
+        "player": "Joel Eriksson Ek",
+        "pos": "C",
+        "slot_id": 7,
+        "slot": "BE",
+        "state": "played",
+        "injury": "ACTIVE",
+        "points": 0.6,
+        "stats": {
+         "HIT": 1.0,
+         "BLK": 1.0
+        }
+       }
+      ],
+      "active_pts": 23.2,
+      "bench_pts": 5.7,
+      "espn_reported": 23.2
+     }
+    },
+    "9": {
+     "date": "2026-10-07",
+     "today": false,
+     "home": {
+      "players": [
+       {
+        "id": 4565233,
+        "player": "Matt Boldy",
+        "pos": "LW",
+        "slot_id": 1,
+        "slot": "LW",
+        "state": "nogame",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 4565236,
+        "player": "Cole Caufield",
+        "pos": "LW",
+        "slot_id": 3,
+        "slot": "F",
+        "state": "nogame",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 4352722,
+        "player": "Evan Bouchard",
+        "pos": "D",
+        "slot_id": 4,
+        "slot": "D",
+        "state": "played",
+        "injury": "ACTIVE",
+        "points": 5.9,
+        "stats": {
+         "G": 2.0,
+         "A": 1.0,
+         "SOG": 4.0,
+         "PPP": 1.0
+        }
+       },
+       {
+        "id": 3648002,
+        "player": "Jack Eichel",
+        "pos": "C",
+        "slot_id": 0,
+        "slot": "C",
+        "state": "nogame",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 3904173,
+        "player": "Sebastian Aho",
+        "pos": "C",
+        "slot_id": 3,
+        "slot": "F",
+        "state": "nogame",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 4196914,
+        "player": "Jake Oettinger",
+        "pos": "G",
+        "slot_id": 5,
+        "slot": "G",
+        "state": "nogame",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 4024950,
+        "player": "Jakob Chychrun",
+        "pos": "D",
+        "slot_id": 4,
+        "slot": "D",
+        "state": "played",
+        "injury": "ACTIVE",
+        "points": 0.7,
+        "stats": {
+         "SOG": 1.0,
+         "HIT": 1.0,
+         "BLK": 1.0
+        }
+       },
+       {
+        "id": 3899937,
+        "player": "Mitch Marner",
+        "pos": "RW",
+        "slot_id": 2,
+        "slot": "RW",
+        "state": "nogame",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 3114722,
+        "player": "Sam Reinhart",
+        "pos": "RW",
+        "slot_id": 3,
+        "slot": "F",
+        "state": "nogame",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 3151297,
+        "player": "Igor Shesterkin",
+        "pos": "G",
+        "slot_id": 5,
+        "slot": "G",
+        "state": "nogame",
+        "injury": "INJURY_RESERVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 4233536,
+        "player": "Miro Heiskanen",
+        "pos": "D",
+        "slot_id": 4,
+        "slot": "D",
+        "state": "nogame",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 5798,
+        "player": "Brock Nelson",
+        "pos": "C",
+        "slot_id": 6,
+        "slot": "UTIL",
+        "state": "played",
+        "injury": "ACTIVE",
+        "points": 1.1,
+        "stats": {
+         "HIT": 1.0,
+         "BLK": 2.0
+        }
+       },
+       {
+        "id": 4272674,
+        "player": "Filip Gustavsson",
+        "pos": "G",
+        "slot_id": 7,
+        "slot": "BE",
+        "state": "nogame",
+        "injury": "INJURY_RESERVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 4024868,
+        "player": "Mikhail Sergachev",
+        "pos": "D",
+        "slot_id": 4,
+        "slot": "D",
+        "state": "nogame",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 3114770,
+        "player": "Nick Schmaltz",
+        "pos": "C",
+        "slot_id": 7,
+        "slot": "BE",
+        "state": "nogame",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 3904091,
+        "player": "Joel Eriksson Ek",
+        "pos": "C",
+        "slot_id": 7,
+        "slot": "BE",
+        "state": "nogame",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       }
+      ],
+      "active_pts": 7.7,
+      "bench_pts": 0.0,
+      "espn_reported": 7.7
+     }
+    },
+    "10": {
+     "date": "2026-10-08",
+     "today": false,
+     "home": {
+      "players": [
+       {
+        "id": 4565233,
+        "player": "Matt Boldy",
+        "pos": "LW",
+        "slot_id": 1,
+        "slot": "LW",
+        "state": "played",
+        "injury": "ACTIVE",
+        "points": 2.7,
+        "stats": {
+         "SOG": 3.0,
+         "HIT": 4.0,
+         "BLK": 4.0
+        }
+       },
+       {
+        "id": 4565236,
+        "player": "Cole Caufield",
+        "pos": "LW",
+        "slot_id": 3,
+        "slot": "F",
+        "state": "played",
+        "injury": "ACTIVE",
+        "points": 0.6,
+        "stats": {
+         "SOG": 6.0
+        }
+       },
+       {
+        "id": 4352722,
+        "player": "Evan Bouchard",
+        "pos": "D",
+        "slot_id": 4,
+        "slot": "D",
+        "state": "nogame",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 3648002,
+        "player": "Jack Eichel",
+        "pos": "C",
+        "slot_id": 0,
+        "slot": "C",
+        "state": "played",
+        "injury": "ACTIVE",
+        "points": 4.7,
+        "stats": {
+         "G": 1.0,
+         "A": 1.0,
+         "SOG": 6.0,
+         "HIT": 1.0,
+         "BLK": 2.0
+        }
+       },
+       {
+        "id": 3904173,
+        "player": "Sebastian Aho",
+        "pos": "C",
+        "slot_id": 3,
+        "slot": "F",
+        "state": "played",
+        "injury": "ACTIVE",
+        "points": 2.1,
+        "stats": {
+         "A": 1.0,
+         "SOG": 1.0,
+         "BLK": 1.0,
+         "SHP": 1.0
+        }
+       },
+       {
+        "id": 4196914,
+        "player": "Jake Oettinger",
+        "pos": "G",
+        "slot_id": 5,
+        "slot": "G",
+        "state": "played",
+        "injury": "ACTIVE",
+        "points": 12.2,
+        "stats": {
+         "W": 1.0,
+         "SA": 26.0,
+         "SV": 26.0,
+         "SO": 1.0,
+         "SV%": 1.0
+        }
+       },
+       {
+        "id": 4024950,
+        "player": "Jakob Chychrun",
+        "pos": "D",
+        "slot_id": 4,
+        "slot": "D",
+        "state": "nogame",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 3899937,
+        "player": "Mitch Marner",
+        "pos": "RW",
+        "slot_id": 2,
+        "slot": "RW",
+        "state": "played",
+        "injury": "ACTIVE",
+        "points": 1.6,
+        "stats": {
+         "A": 1.0,
+         "SOG": 5.0,
+         "HIT": 1.0
+        }
+       },
+       {
+        "id": 3114722,
+        "player": "Sam Reinhart",
+        "pos": "RW",
+        "slot_id": 3,
+        "slot": "F",
+        "state": "nogame",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 3151297,
+        "player": "Igor Shesterkin",
+        "pos": "G",
+        "slot_id": 5,
+        "slot": "G",
+        "state": "nogame",
+        "injury": "INJURY_RESERVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 4233536,
+        "player": "Miro Heiskanen",
+        "pos": "D",
+        "slot_id": 4,
+        "slot": "D",
+        "state": "played",
+        "injury": "ACTIVE",
+        "points": 0.6,
+        "stats": {
+         "SOG": 1.0,
+         "BLK": 1.0
+        }
+       },
+       {
+        "id": 5798,
+        "player": "Brock Nelson",
+        "pos": "C",
+        "slot_id": 6,
+        "slot": "UTIL",
+        "state": "played",
+        "injury": "ACTIVE",
+        "points": 1.3,
+        "stats": {
+         "A": 1.0,
+         "SOG": 1.0,
+         "HIT": 2.0
+        }
+       },
+       {
+        "id": 4272674,
+        "player": "Filip Gustavsson",
+        "pos": "G",
+        "slot_id": 7,
+        "slot": "BE",
+        "state": "dnp",
+        "injury": "INJURY_RESERVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 4024868,
+        "player": "Mikhail Sergachev",
+        "pos": "D",
+        "slot_id": 4,
+        "slot": "D",
+        "state": "played",
+        "injury": "ACTIVE",
+        "points": 0.8,
+        "stats": {
+         "HIT": 3.0,
+         "BLK": 1.0
+        }
+       },
+       {
+        "id": 3114770,
+        "player": "Nick Schmaltz",
+        "pos": "C",
+        "slot_id": 7,
+        "slot": "BE",
+        "state": "played",
+        "injury": "ACTIVE",
+        "points": 0.4,
+        "stats": {
+         "SOG": 3.0,
+         "HIT": 1.0
+        }
+       },
+       {
+        "id": 3904091,
+        "player": "Joel Eriksson Ek",
+        "pos": "C",
+        "slot_id": 7,
+        "slot": "BE",
+        "state": "played",
+        "injury": "ACTIVE",
+        "points": 0.6,
+        "stats": {
+         "SOG": 6.0
+        }
+       }
+      ],
+      "active_pts": 26.6,
+      "bench_pts": 1.0,
+      "espn_reported": 26.6
+     }
+    },
+    "11": {
+     "date": "2026-10-09",
+     "today": false,
+     "home": {
+      "players": [
+       {
+        "id": 4565233,
+        "player": "Matt Boldy",
+        "pos": "LW",
+        "slot_id": 1,
+        "slot": "LW",
+        "state": "nogame",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 4565236,
+        "player": "Cole Caufield",
+        "pos": "LW",
+        "slot_id": 3,
+        "slot": "F",
+        "state": "nogame",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 4352722,
+        "player": "Evan Bouchard",
+        "pos": "D",
+        "slot_id": 4,
+        "slot": "D",
+        "state": "nogame",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 3648002,
+        "player": "Jack Eichel",
+        "pos": "C",
+        "slot_id": 0,
+        "slot": "C",
+        "state": "nogame",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 3904173,
+        "player": "Sebastian Aho",
+        "pos": "C",
+        "slot_id": 3,
+        "slot": "F",
+        "state": "nogame",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 4196914,
+        "player": "Jake Oettinger",
+        "pos": "G",
+        "slot_id": 5,
+        "slot": "G",
+        "state": "nogame",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 4024950,
+        "player": "Jakob Chychrun",
+        "pos": "D",
+        "slot_id": 4,
+        "slot": "D",
+        "state": "played",
+        "injury": "ACTIVE",
+        "points": 0.9,
+        "stats": {
+         "SOG": 3.0,
+         "HIT": 1.0,
+         "BLK": 1.0
+        }
+       },
+       {
+        "id": 3899937,
+        "player": "Mitch Marner",
+        "pos": "RW",
+        "slot_id": 2,
+        "slot": "RW",
+        "state": "nogame",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 3114722,
+        "player": "Sam Reinhart",
+        "pos": "RW",
+        "slot_id": 3,
+        "slot": "F",
+        "state": "nogame",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 3151297,
+        "player": "Igor Shesterkin",
+        "pos": "G",
+        "slot_id": 5,
+        "slot": "G",
+        "state": "played",
+        "injury": "INJURY_RESERVE",
+        "points": 0.6,
+        "stats": {
+         "SA": 14.0,
+         "GA": 1.0,
+         "SV": 13.0,
+         "SV%": 0.929
+        }
+       },
+       {
+        "id": 4233536,
+        "player": "Miro Heiskanen",
+        "pos": "D",
+        "slot_id": 4,
+        "slot": "D",
+        "state": "nogame",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 5798,
+        "player": "Brock Nelson",
+        "pos": "C",
+        "slot_id": 6,
+        "slot": "UTIL",
+        "state": "nogame",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 4272674,
+        "player": "Filip Gustavsson",
+        "pos": "G",
+        "slot_id": 7,
+        "slot": "BE",
+        "state": "nogame",
+        "injury": "INJURY_RESERVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 4024868,
+        "player": "Mikhail Sergachev",
+        "pos": "D",
+        "slot_id": 4,
+        "slot": "D",
+        "state": "nogame",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 3114770,
+        "player": "Nick Schmaltz",
+        "pos": "C",
+        "slot_id": 7,
+        "slot": "BE",
+        "state": "nogame",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 3904091,
+        "player": "Joel Eriksson Ek",
+        "pos": "C",
+        "slot_id": 7,
+        "slot": "BE",
+        "state": "nogame",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       }
+      ],
+      "active_pts": 1.5,
+      "bench_pts": 0.0,
+      "espn_reported": 1.5
+     }
+    },
+    "12": {
+     "date": "2026-10-10",
+     "today": false,
+     "home": {
+      "players": [
+       {
+        "id": 4565233,
+        "player": "Matt Boldy",
+        "pos": "LW",
+        "slot_id": 1,
+        "slot": "LW",
+        "state": "played",
+        "injury": "ACTIVE",
+        "points": 3.5,
+        "stats": {
+         "G": 1.0,
+         "A": 1.0,
+         "SOG": 4.0,
+         "HIT": 1.0
+        }
+       },
+       {
+        "id": 4565236,
+        "player": "Cole Caufield",
+        "pos": "LW",
+        "slot_id": 3,
+        "slot": "F",
+        "state": "played",
+        "injury": "ACTIVE",
+        "points": 0.6,
+        "stats": {
+         "SOG": 6.0
+        }
+       },
+       {
+        "id": 4352722,
+        "player": "Evan Bouchard",
+        "pos": "D",
+        "slot_id": 4,
+        "slot": "D",
+        "state": "played",
+        "injury": "ACTIVE",
+        "points": 1.1,
+        "stats": {
+         "A": 1.0,
+         "SOG": 1.0
+        }
+       },
+       {
+        "id": 3648002,
+        "player": "Jack Eichel",
+        "pos": "C",
+        "slot_id": 0,
+        "slot": "C",
+        "state": "played",
+        "injury": "ACTIVE",
+        "points": 0.9,
+        "stats": {
+         "SOG": 4.0,
+         "BLK": 1.0
+        }
+       },
+       {
+        "id": 3904173,
+        "player": "Sebastian Aho",
+        "pos": "C",
+        "slot_id": 3,
+        "slot": "F",
+        "state": "played",
+        "injury": "ACTIVE",
+        "points": 3.6,
+        "stats": {
+         "G": 1.0,
+         "SOG": 6.0,
+         "BLK": 1.0,
+         "SHP": 1.0
+        }
+       },
+       {
+        "id": 4196914,
+        "player": "Jake Oettinger",
+        "pos": "G",
+        "slot_id": 5,
+        "slot": "G",
+        "state": "played",
+        "injury": "ACTIVE",
+        "points": 3.0,
+        "stats": {
+         "SA": 21.0,
+         "GA": 1.0,
+         "SV": 20.0,
+         "OTL": 1.0,
+         "SV%": 0.952
+        }
+       },
+       {
+        "id": 4024950,
+        "player": "Jakob Chychrun",
+        "pos": "D",
+        "slot_id": 4,
+        "slot": "D",
+        "state": "nogame",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 3899937,
+        "player": "Mitch Marner",
+        "pos": "RW",
+        "slot_id": 2,
+        "slot": "RW",
+        "state": "played",
+        "injury": "ACTIVE",
+        "points": 5.3,
+        "stats": {
+         "G": 1.0,
+         "A": 1.0,
+         "SOG": 3.0,
+         "BLK": 2.0,
+         "PPP": 2.0
+        }
+       },
+       {
+        "id": 3114722,
+        "player": "Sam Reinhart",
+        "pos": "RW",
+        "slot_id": 3,
+        "slot": "F",
+        "state": "played",
+        "injury": "ACTIVE",
+        "points": 0.4,
+        "stats": {
+         "SOG": 2.0,
+         "HIT": 2.0
+        }
+       },
+       {
+        "id": 3151297,
+        "player": "Igor Shesterkin",
+        "pos": "G",
+        "slot_id": 5,
+        "slot": "G",
+        "state": "nogame",
+        "injury": "INJURY_RESERVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 4233536,
+        "player": "Miro Heiskanen",
+        "pos": "D",
+        "slot_id": 4,
+        "slot": "D",
+        "state": "played",
+        "injury": "ACTIVE",
+        "points": 2.1,
+        "stats": {
+         "A": 1.0,
+         "HIT": 1.0,
+         "BLK": 2.0
+        }
+       },
+       {
+        "id": 5798,
+        "player": "Brock Nelson",
+        "pos": "C",
+        "slot_id": 6,
+        "slot": "UTIL",
+        "state": "played",
+        "injury": "ACTIVE",
+        "points": 2.4,
+        "stats": {
+         "G": 1.0,
+         "SOG": 4.0
+        }
+       },
+       {
+        "id": 4272674,
+        "player": "Filip Gustavsson",
+        "pos": "G",
+        "slot_id": 7,
+        "slot": "BE",
+        "state": "dnp",
+        "injury": "INJURY_RESERVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 4024868,
+        "player": "Mikhail Sergachev",
+        "pos": "D",
+        "slot_id": 4,
+        "slot": "D",
+        "state": "played",
+        "injury": "ACTIVE",
+        "points": 2.8,
+        "stats": {
+         "A": 1.0,
+         "SOG": 3.0,
+         "BLK": 3.0
+        }
+       },
+       {
+        "id": 3114770,
+        "player": "Nick Schmaltz",
+        "pos": "C",
+        "slot_id": 7,
+        "slot": "BE",
+        "state": "played",
+        "injury": "ACTIVE",
+        "points": 3.9,
+        "stats": {
+         "G": 1.0,
+         "SOG": 4.0,
+         "BLK": 2.0,
+         "PPP": 1.0
+        }
+       },
+       {
+        "id": 3904091,
+        "player": "Joel Eriksson Ek",
+        "pos": "C",
+        "slot_id": 7,
+        "slot": "BE",
+        "state": "played",
+        "injury": "ACTIVE",
+        "points": 1.4,
+        "stats": {
+         "A": 1.0,
+         "SOG": 3.0,
+         "HIT": 1.0
+        }
+       }
+      ],
+      "active_pts": 25.7,
+      "bench_pts": 5.3,
+      "espn_reported": 25.7
+     }
+    },
+    "13": {
+     "date": "2026-10-11",
+     "today": false,
+     "home": {
+      "players": [
+       {
+        "id": 4565233,
+        "player": "Matt Boldy",
+        "pos": "LW",
+        "slot_id": 1,
+        "slot": "LW",
+        "state": "nogame",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 4565236,
+        "player": "Cole Caufield",
+        "pos": "LW",
+        "slot_id": 3,
+        "slot": "F",
+        "state": "nogame",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 4352722,
+        "player": "Evan Bouchard",
+        "pos": "D",
+        "slot_id": 4,
+        "slot": "D",
+        "state": "nogame",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 3648002,
+        "player": "Jack Eichel",
+        "pos": "C",
+        "slot_id": 0,
+        "slot": "C",
+        "state": "nogame",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 3904173,
+        "player": "Sebastian Aho",
+        "pos": "C",
+        "slot_id": 3,
+        "slot": "F",
+        "state": "played",
+        "injury": "ACTIVE",
+        "points": 4.2,
+        "stats": {
+         "G": 1.0,
+         "A": 1.0,
+         "SOG": 2.0,
+         "BLK": 2.0
+        }
+       },
+       {
+        "id": 4196914,
+        "player": "Jake Oettinger",
+        "pos": "G",
+        "slot_id": 5,
+        "slot": "G",
+        "state": "nogame",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 4024950,
+        "player": "Jakob Chychrun",
+        "pos": "D",
+        "slot_id": 4,
+        "slot": "D",
+        "state": "played",
+        "injury": "ACTIVE",
+        "points": 0.8,
+        "stats": {
+         "SOG": 8.0
+        }
+       },
+       {
+        "id": 3899937,
+        "player": "Mitch Marner",
+        "pos": "RW",
+        "slot_id": 2,
+        "slot": "RW",
+        "state": "nogame",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 3114722,
+        "player": "Sam Reinhart",
+        "pos": "RW",
+        "slot_id": 3,
+        "slot": "F",
+        "state": "nogame",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 3151297,
+        "player": "Igor Shesterkin",
+        "pos": "G",
+        "slot_id": 5,
+        "slot": "G",
+        "state": "dnp",
+        "injury": "INJURY_RESERVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 4233536,
+        "player": "Miro Heiskanen",
+        "pos": "D",
+        "slot_id": 4,
+        "slot": "D",
+        "state": "nogame",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 5798,
+        "player": "Brock Nelson",
+        "pos": "C",
+        "slot_id": 6,
+        "slot": "UTIL",
+        "state": "nogame",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 4272674,
+        "player": "Filip Gustavsson",
+        "pos": "G",
+        "slot_id": 7,
+        "slot": "BE",
+        "state": "nogame",
+        "injury": "INJURY_RESERVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 4024868,
+        "player": "Mikhail Sergachev",
+        "pos": "D",
+        "slot_id": 4,
+        "slot": "D",
+        "state": "nogame",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 3114770,
+        "player": "Nick Schmaltz",
+        "pos": "C",
+        "slot_id": 7,
+        "slot": "BE",
+        "state": "nogame",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 3904091,
+        "player": "Joel Eriksson Ek",
+        "pos": "C",
+        "slot_id": 7,
+        "slot": "BE",
+        "state": "nogame",
+        "injury": "ACTIVE",
+        "points": 0.0,
+        "stats": {}
+       }
+      ],
+      "active_pts": 5.0,
+      "bench_pts": 0.0,
+      "espn_reported": 5.0
      }
     }
    }
