@@ -30,6 +30,23 @@ jobs:
 
       - run: pip install -r requirements.txt
 
+      - name: Check the secrets are present (lengths only, never values)
+        env:
+          ESPN_S2: ${{ secrets.ESPN_S2 }}
+          ESPN_SWID: ${{ secrets.ESPN_SWID }}
+        run: |
+          echo "ESPN_S2 length: ${#ESPN_S2}"
+          echo "ESPN_SWID length: ${#ESPN_SWID}"
+          if [[ "$ESPN_SWID" =~ ^\{[0-9A-Fa-f-]{36}\}$ ]]; then
+            echo "ESPN_SWID format: looks right"
+          else
+            echo "ESPN_SWID format: does not look like {GUID}"
+          fi
+          if [ -z "$ESPN_S2" ] || [ -z "$ESPN_SWID" ]; then
+            echo "::error::A secret is empty. Re-set ESPN_S2 and ESPN_SWID (see README)."
+            exit 1
+          fi
+
       - name: Pull from ESPN (previous and current week)
         env:
           ESPN_S2: ${{ secrets.ESPN_S2 }}
