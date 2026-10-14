@@ -13,6 +13,7 @@ import json
 import sys
 from pathlib import Path
 
+LEAGUE_NAME = "My 2027 League"
 DATA = Path(sys.argv[1]) if len(sys.argv) > 1 else Path("data")
 SITE = Path(sys.argv[2]) if len(sys.argv) > 2 else Path("site")
 
@@ -39,14 +40,26 @@ PAGE = r"""<!doctype html>
   body { margin: 0; padding: 16px; background: var(--bg); color: var(--text);
          font: 15px/1.4 system-ui, sans-serif; }
   main { max-width: 1240px; margin: 0 auto; }
-  header { display: flex; flex-wrap: wrap; gap: 12px; align-items: baseline; margin-bottom: 12px; }
-  h1 { font-size: 20px; margin: 0; }
+  header.top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end;
+               gap: 16px 24px; padding: 12px 0 20px; margin-bottom: 20px; border-bottom: 1px solid var(--line); }
+  h1 { font-size: 26px; line-height: 1.15; letter-spacing: -.01em; margin: 0; }
+  .brand .sub { margin: 4px 0 0; color: var(--muted); font-size: 14px; }
+  .controls { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+  .stepper { display: inline-flex; align-items: stretch; background: var(--card);
+             border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+  .stepper > * { font: inherit; color: var(--text); background: transparent; border: 0; padding: 7px 12px; cursor: pointer; }
+  .stepper > * + * { border-left: 1px solid var(--line); }
+  .stepper select { font-weight: 600; padding-right: 8px; }
+  .stepper button { font-size: 18px; line-height: 1; padding: 7px 14px; }
+  .stepper button:hover:not(:disabled) { background: var(--row); }
+  .stepper button:disabled { opacity: .3; cursor: default; }
+  .range { color: var(--muted); font-size: 14px; }
   h2 { font-size: 16px; margin: 0; }
   select, .btn { font: inherit; padding: 4px 10px; background: var(--card); color: var(--text);
                  border: 1px solid var(--line); border-radius: 6px; cursor: pointer; }
   .muted { color: var(--muted); }
   .legend { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; font-size: 13px;
-            color: var(--muted); margin: 0 0 16px; }
+            color: var(--muted); margin: 0 0 20px; }
   .sw { display: inline-block; width: 22px; height: 14px; vertical-align: middle; margin-right: 4px;
         border-radius: 3px; background: rgba(var(--pos), .35); }
   .sw.ir { background: transparent;
@@ -64,6 +77,22 @@ PAGE = r"""<!doctype html>
   /* Sideways scroll for narrow screens only. Setting one axis to auto makes the other auto too, so a
      sub-pixel height overflow would show a vertical scrollbar; hide that axis explicitly. */
   .scroll { overflow-x: auto; overflow-y: hidden; }
+
+  .top-grid { display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start; margin-bottom: 16px; }
+  .top-grid .card { margin-bottom: 0; }
+  .bench-card { flex: 0 1 440px; min-width: 300px; }
+  table.bench th, table.bench td { padding: 5px 12px; }
+  table.bench th:nth-child(1), table.bench td:nth-child(1) { width: 36px; text-align: right; color: var(--muted); padding-left: 4px; }
+  table.bench th:nth-child(2), table.bench td:nth-child(2) { text-align: left; }
+  table.bench tbody tr { border-top: 1px solid var(--line); }
+  table.bench tbody tr:hover td { background: var(--row); }
+  table.bench td.num { font-variant-numeric: tabular-nums; }
+  table.bench td.num.bn { color: var(--accent); font-weight: 600; }
+  button.sort { all: unset; cursor: pointer; color: inherit; font: inherit; padding: 2px 0; }
+  button.sort:focus-visible { outline: 2px solid var(--muted); border-radius: 4px; }
+  th.sorted button.sort { color: var(--text); font-weight: 600; }
+  th.sorted.desc button.sort::after { content: ' \25BC'; font-size: 9px; }
+  th.sorted.asc button.sort::after { content: ' \25B2'; font-size: 9px; }
   table { border-collapse: collapse; width: 100%; }
   th, td { padding: 3px 5px; text-align: right; white-space: nowrap; vertical-align: top; }
   th { font-weight: 500; color: var(--muted); font-size: 13px; }
@@ -134,11 +163,20 @@ PAGE = r"""<!doctype html>
 </head>
 <body>
 <main>
-  <header>
-    <h1>Fantasy Hockey Stats</h1>
-    <label>Week <select id="week-select"></select></label>
-    <span class="muted" id="week-range"></span>
-    <button class="btn" id="toggle-all">Expand all teams</button>
+  <header class="top">
+    <div class="brand">
+      <h1>Fantasy Hockey Stats</h1>
+      <p class="sub">__LEAGUE__ &middot; head-to-head points</p>
+    </div>
+    <div class="controls">
+      <div class="stepper" role="group" aria-label="Choose a week">
+        <button id="week-prev" aria-label="Previous week">&#8249;</button>
+        <select id="week-select" aria-label="Week"></select>
+        <button id="week-next" aria-label="Next week">&#8250;</button>
+      </div>
+      <span class="range" id="week-range"></span>
+      <button class="btn" id="toggle-all">Expand all teams</button>
+    </div>
   </header>
   <p class="legend">
     <span><b class="ex">1.2</b>Active (counted)</span>
@@ -321,6 +359,35 @@ function teamBody(m, x, sps, maxP, maxAbs, isTop) {
   return tb;
 }
 
+// Compact leaderboard of bench vs. active points. Click a column header to sort by it (click again
+// to flip); the rank column always follows the current order. The choice sticks across weeks.
+let benchSort = { key: 'bench', dir: 'desc' };
+function benchCard(rows) {
+  const card = h('section', { class: 'card bench-card' },
+    h('div', { class: 'card-head' }, h('h2', {}, 'Points left on the bench')));
+  const draw = () => {
+    const sign = benchSort.dir === 'desc' ? -1 : 1;
+    const sorted = [...rows].sort((a, b) => sign * (a[benchSort.key] - b[benchSort.key]) || a.name.localeCompare(b.name));
+    const th = (key, label) => h('th', {
+      class: 'sortable' + (benchSort.key === key ? ` sorted ${benchSort.dir}` : ''),
+      'aria-sort': benchSort.key === key ? (benchSort.dir === 'desc' ? 'descending' : 'ascending') : 'none',
+    }, h('button', { class: 'sort', title: 'Sort by ' + label, onclick: () => {
+      benchSort = benchSort.key === key ? { key, dir: benchSort.dir === 'desc' ? 'asc' : 'desc' } : { key, dir: 'desc' };
+      draw();
+    } }, label));
+    card.querySelector('table')?.remove();
+    card.append(h('table', { class: 'bench' },
+      h('thead', {}, h('tr', {}, h('th', {}, '#'), h('th', {}, 'Team'), th('bench', 'Bench'), th('active', 'Active'))),
+      h('tbody', {}, sorted.map((x, i) => h('tr', {},
+        h('td', {}, String(i + 1)),
+        h('td', {}, x.bye ? `${x.name} (bye)` : x.name),
+        h('td', { class: 'num bn' }, fmt(x.bench)),
+        h('td', { class: 'num' }, fmt(x.active)))))));
+  };
+  draw();
+  return card;
+}
+
 function renderWeek(w) {
   const root = document.getElementById('week');
   const first = w.matchups[0];
@@ -379,19 +446,23 @@ function renderWeek(w) {
   const cards = w.matchups.map(card);
   const byeCards = byes.map(card);              // after the matchups, at the bottom
 
-  bench.sort((a, b) => b.bench - a.bench);
-  const summary = h('section', { class: 'card' },
-    h('div', { class: 'card-head' }, h('h2', {}, 'Points left on the bench this week')),
-    h('table', {}, h('thead', {}, h('tr', {}, h('th', {}, 'Team'), h('th', {}, 'Bench'), h('th', {}, 'Active'))),
-      h('tbody', {}, bench.map((x) => h('tr', {}, h('td', {}, x.bye ? `${x.name} (bye)` : x.name), h('td', {}, fmt(x.bench)), h('td', {}, fmt(x.active)))))));
-
-  root.replaceChildren(summary, ...cards, ...byeCards);
+  root.replaceChildren(h('div', { class: 'top-grid' }, benchCard(bench)), ...cards, ...byeCards);
   document.getElementById('toggle-all').textContent = 'Expand all teams';
 }
 
 const select = document.getElementById('week-select');
-WEEKS.forEach((w, i) => select.append(h('option', { value: i }, w.week)));
-select.addEventListener('change', () => renderWeek(WEEKS[select.value]));
+const prevBtn = document.getElementById('week-prev'), nextBtn = document.getElementById('week-next');
+WEEKS.forEach((w, i) => select.append(h('option', { value: i }, `Week ${w.week}`)));
+function showWeek(i) {                          // WEEKS is newest first, so "previous week" is i + 1
+  select.value = String(i);
+  prevBtn.disabled = i >= WEEKS.length - 1;
+  nextBtn.disabled = i <= 0;
+  renderWeek(WEEKS[i]);
+  try { history.replaceState(null, '', '#week-' + WEEKS[i].week); } catch (e) { /* e.g. some file:// setups */ }
+}
+select.addEventListener('change', () => showWeek(Number(select.value)));
+prevBtn.addEventListener('click', () => showWeek(Number(select.value) + 1));
+nextBtn.addEventListener('click', () => showWeek(Number(select.value) - 1));
 document.getElementById('toggle-all').addEventListener('click', (e) => {
   const all = [...document.querySelectorAll('tbody.team')];
   const open = !all.every((b) => b.isOpen());
@@ -403,8 +474,13 @@ if (!isNaN(new Date(gen.getAttribute('datetime')))) gen.textContent = new Date(g
 const dlg = document.getElementById('detail');
 document.getElementById('detail-close').addEventListener('click', () => dlg.close());
 dlg.addEventListener('click', (e) => { if (e.target === dlg) dlg.close(); });  // click on backdrop
-if (WEEKS.length) renderWeek(WEEKS[0]);
-else document.getElementById('week').textContent = 'No week_N.json files found.';
+if (WEEKS.length) {
+  const wanted = (location.hash.match(/week-(\d+)/) || [])[1];   // a link like ...#week-2 opens that week
+  const start = WEEKS.findIndex((w) => String(w.week) === wanted);
+  showWeek(start >= 0 ? start : 0);
+} else {
+  document.getElementById('week').textContent = 'No week_N.json files found.';
+}
 </script>
 </body>
 </html>
@@ -416,7 +492,7 @@ def main():
     weeks.sort(key=lambda w: w["week"], reverse=True)  # newest first
     # "</" inside JSON could end the <script> tag early, so escape it.
     data = json.dumps(weeks).replace("</", "<\\/")
-    html = PAGE.replace("__DATA__", data).replace(
+    html = PAGE.replace("__LEAGUE__", LEAGUE_NAME).replace("__DATA__", data).replace(
         "__GENERATED__", dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"))
     SITE.mkdir(exist_ok=True)
     (SITE / "index.html").write_text(html, encoding="utf-8")
