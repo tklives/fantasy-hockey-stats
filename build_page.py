@@ -91,6 +91,7 @@ PAGE = r"""<!doctype html>
   table.misses td.who .tag { margin-left: 6px; }
   table.misses td.team { text-align: left; font-weight: 600; white-space: normal; }
   table.misses td.day { text-align: right; color: var(--muted); font-size: 13px; }
+  table.misses td.wk { text-align: right; color: var(--muted); font-size: 13px; font-weight: 600; padding-right: 2px; }
   .seg { display: inline-flex; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
   .seg button { font: inherit; font-size: 13px; padding: 3px 10px; background: transparent; color: var(--muted); border: 0; cursor: pointer; }
   .seg button + button { border-left: 1px solid var(--line); }
@@ -445,18 +446,19 @@ function missesCard(w) {
       for (const s of (m.away == null ? ['home'] : ['home', 'away'])) for (const d of Object.values(m.days)) {
         if (d.future) continue;
         for (const p of d[s].players) {
-          if (BENCH.has(p.slot_id) && p.state === 'played' && p.points > 0) rows.push({ p, date: d.date, team: wk.teams[m[s]] });
+          if (BENCH.has(p.slot_id) && p.state === 'played' && p.points > 0) rows.push({ p, date: d.date, week: wk.week, team: wk.teams[m[s]] });
         }
       }
     }
     rows.sort((a, b) => b.p.points - a.p.points || a.p.player.localeCompare(b.p.player));
-    const body = rows.slice(0, 8).map(({ p, date, team }) => h('tr', {
+    const body = rows.slice(0, 8).map(({ p, date, week, team }) => h('tr', {
         class: 'miss', title: 'Click for details',
         onclick: () => openPlayer({ name: p.player, pos: p.pos }, date, p) },
       h('td', { class: 'pt' }, fmt(p.points)),
       h('td', { class: 'who' }, p.player, ' ', h('span', { class: 'ppos' }, p.pos),
         p.slot_id === 8 && h('span', { class: 'tag' }, 'IR')),   // every row is a bench slot; only IR is worth marking
       h('td', { class: 'team' }, team),
+      missesScope === 'season' && h('td', { class: 'wk' }, `Wk ${week}`),   // every row is the same week otherwise
       h('td', { class: 'day' }, dayLabel(date))));
     card.replaceChildren(
       h('div', { class: 'card-head' }, h('h2', {}, 'Biggest bench misses'),
