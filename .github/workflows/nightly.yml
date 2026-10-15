@@ -2,8 +2,11 @@ name: Nightly update
 
 on:
   schedule:
-    # 12:17 UTC = 7:17 AM Central in summer, 6:17 AM in winter. Late enough for ESPN to have rolled
-    # to the new day and for last night's games to be scored. (GitHub may run it a bit late.)
+    # Two runs a night, both before people are likely to look. GitHub's scheduler is best-effort: it
+    # can run late or skip a run, and the pull is safe to repeat, so the second run is a backup.
+    # 09:17 UTC = 4:17 AM Central in summer (3:17 AM in winter); 12:17 UTC = 7:17 AM (6:17 AM).
+    # Both are after last night's games are scored and ESPN has rolled to the new day.
+    - cron: "17 9 * * *"
     - cron: "17 12 * * *"
   workflow_dispatch:   # the "Run workflow" button, for testing
 
