@@ -367,12 +367,31 @@ def pull_week(week, teams, current_sp, current_week, items):
         day_ids.add(current_sp)  # today may not have points yet
 
     frozen = frozen_rosters(week, current_sp)
-    tids = [t for m in matchups for t in (m["home"], m["away"]) if t is not None]
+
+    def frozen_matches_espn(sp):
+        """Do the saved rosters for this day still add up to ESPN's own daily totals?
+
+        Stats get corrected after the fact (a half-point change showed up five days later), so a saved
+        day is only reused while it agrees with what ESPN reports now. If not, it is refetched.
+        """
+        for m in matchups:
+            for side in ("home", "away"):
+                tid, reported = m[side], m[f"{side}_by_day"].get(str(sp))
+                if tid is None or reported is None:
+                    continue
+                active = sum(p["points"] for p in frozen[(sp, tid)] if p["slot_id"] not in BENCH_SLOTS)
+                if abs(active - reported) > 0.15:
+                    print(f"Week {week}, day {sp}: saved total for {teams[tid]} ({active:.1f}) no longer "
+                          f"matches ESPN ({reported}); refetching that day")
+                    return False
+        return True
+
+    tids =[t for m in matchups for t in (m["home"], m["away"]) if t is not None]
     days, reused = {}, 0
     for sp in sorted(day_ids):
         if sp > current_sp:
             continue  # future days have nothing to show
-        if all((sp, t) in frozen for t in tids):
+        if all((sp, t) in frozen for t in tids) and frozen_matches_espn(sp):
             days[sp] = {t: frozen[(sp, t)] for t in tids}
             reused += 1
         else:
