@@ -5818,8 +5818,9 @@
         "slot": "G",
         "state": "played",
         "injury": "ACTIVE",
-        "points": 0.4,
+        "points": 4.4,
         "stats": {
+         "W": 1.0,
          "SA": 24.0,
          "GA": 2.0,
          "SV": 22.0,
@@ -5933,7 +5934,7 @@
         }
        }
       ],
-      "active_pts": 16.7,
+      "active_pts": 20.7,
       "bench_pts": 0.0,
       "espn_reported": 16.7
      },
@@ -6524,10 +6525,21 @@
         "id": 5452,
         "player": "Jacob Markstrom",
         "pos": "G",
+        "slot_id": 7,
+        "slot": "BE",
+        "state": "pending",
+        "injury": "OUT",
+        "points": 0.0,
+        "stats": {}
+       },
+       {
+        "id": 3904177,
+        "player": "Mackenzie Blackwood",
+        "pos": "G",
         "slot_id": 5,
         "slot": "G",
         "state": "pending",
-        "injury": "OUT",
+        "injury": "ACTIVE",
         "points": 0.0,
         "stats": {}
        }
