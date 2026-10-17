@@ -4702,7 +4702,7 @@
         "slot_id": 7,
         "slot": "BE",
         "state": "nogame",
-        "injury": "DAY_TO_DAY",
+        "injury": "OUT",
         "points": 0.0,
         "stats": {}
        },
@@ -5098,7 +5098,7 @@
         "slot_id": 3,
         "slot": "F",
         "state": "pending",
-        "injury": "DAY_TO_DAY",
+        "injury": "OUT",
         "points": 0.0,
         "stats": {}
        },
@@ -7324,7 +7324,7 @@
         "slot_id": 7,
         "slot": "BE",
         "state": "nogame",
-        "injury": "OUT",
+        "injury": "ACTIVE",
         "points": 0.0,
         "stats": {}
        },
@@ -7722,7 +7722,7 @@
         "slot_id": 7,
         "slot": "BE",
         "state": "pending",
-        "injury": "OUT",
+        "injury": "ACTIVE",
         "points": 0.0,
         "stats": {}
        },
