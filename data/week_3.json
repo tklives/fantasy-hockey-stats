@@ -5811,7 +5811,7 @@
         "slot_id": 4,
         "slot": "D",
         "state": "nogame",
-        "injury": "DAY_TO_DAY",
+        "injury": "ACTIVE",
         "points": 0.0,
         "stats": {}
        },
@@ -10678,7 +10678,7 @@
         "slot_id": 4,
         "slot": "D",
         "state": "nogame",
-        "injury": "DAY_TO_DAY",
+        "injury": "OUT",
         "points": 0.0,
         "stats": {}
        },
