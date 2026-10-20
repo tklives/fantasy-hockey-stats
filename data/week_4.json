@@ -1292,7 +1292,7 @@
         "slot_id": 7,
         "slot": "BE",
         "state": "nogame",
-        "injury": "ACTIVE",
+        "injury": "OUT",
         "points": 0.0,
         "stats": {}
        },
@@ -1689,7 +1689,7 @@
         "slot_id": 7,
         "slot": "BE",
         "state": "pending",
-        "injury": "ACTIVE",
+        "injury": "OUT",
         "points": 0.0,
         "stats": {}
        },
