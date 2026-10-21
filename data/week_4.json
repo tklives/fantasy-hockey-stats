@@ -1854,7 +1854,7 @@
         "slot_id": 8,
         "slot": "IR",
         "state": "nogame",
-        "injury": "DAY_TO_DAY",
+        "injury": "ACTIVE",
         "points": 0.0,
         "stats": {}
        },
@@ -2317,7 +2317,7 @@
         "slot_id": 8,
         "slot": "IR",
         "state": "pending",
-        "injury": "DAY_TO_DAY",
+        "injury": "ACTIVE",
         "points": 0.0,
         "stats": {}
        },
@@ -4319,7 +4319,7 @@
         "slot_id": 5,
         "slot": "G",
         "state": "played",
-        "injury": "ACTIVE",
+        "injury": "DAY_TO_DAY",
         "points": -3.8,
         "stats": {
          "SA": 25.0,
@@ -4546,7 +4546,7 @@
         "slot_id": 5,
         "slot": "G",
         "state": "pending",
-        "injury": "ACTIVE",
+        "injury": "DAY_TO_DAY",
         "points": 0.0,
         "stats": {}
        },
