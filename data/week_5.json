@@ -1220,7 +1220,7 @@
         "slot_id": 5,
         "slot": "G",
         "state": "nogame",
-        "injury": "OUT",
+        "injury": "ACTIVE",
         "points": 0.0,
         "stats": {}
        },
@@ -1620,7 +1620,7 @@
         "slot_id": 5,
         "slot": "G",
         "state": "pending",
-        "injury": "OUT",
+        "injury": "ACTIVE",
         "points": 0.0,
         "stats": {}
        },
