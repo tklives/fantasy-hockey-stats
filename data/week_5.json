@@ -1035,7 +1035,7 @@
         "slot_id": 4,
         "slot": "D",
         "state": "nogame",
-        "injury": "OUT",
+        "injury": "ACTIVE",
         "points": 0.0,
         "stats": {}
        },
@@ -1423,7 +1423,7 @@
         "slot_id": 4,
         "slot": "D",
         "state": "pending",
-        "injury": "OUT",
+        "injury": "ACTIVE",
         "points": 0.0,
         "stats": {}
        },
@@ -4660,7 +4660,7 @@
         "slot_id": 3,
         "slot": "F",
         "state": "dnp",
-        "injury": "OUT",
+        "injury": "INJURY_RESERVE",
         "points": 0.0,
         "stats": {}
        },
@@ -5044,7 +5044,7 @@
         "slot_id": 3,
         "slot": "F",
         "state": "pending",
-        "injury": "OUT",
+        "injury": "INJURY_RESERVE",
         "points": 0.0,
         "stats": {}
        },
