@@ -1947,7 +1947,7 @@
         "slot_id": 4,
         "slot": "D",
         "state": "nogame",
-        "injury": "DAY_TO_DAY",
+        "injury": "ACTIVE",
         "points": 0.0,
         "stats": {}
        }
@@ -2090,7 +2090,7 @@
         "slot_id": 4,
         "slot": "D",
         "state": "nogame",
-        "injury": "DAY_TO_DAY",
+        "injury": "OUT",
         "points": 0.0,
         "stats": {}
        },
@@ -2320,10 +2320,14 @@
         "pos": "G",
         "slot_id": 5,
         "slot": "G",
-        "state": "pending",
+        "state": "played",
         "injury": "ACTIVE",
-        "points": 0.0,
-        "stats": {}
+        "points": 0.2,
+        "stats": {
+         "SA": 1.0,
+         "SV": 1.0,
+         "SV%": 1.0
+        }
        },
        {
         "id": 4874722,
@@ -2332,14 +2336,14 @@
         "slot_id": 4,
         "slot": "D",
         "state": "pending",
-        "injury": "DAY_TO_DAY",
+        "injury": "ACTIVE",
         "points": 0.0,
         "stats": {}
        }
       ],
-      "active_pts": 0.0,
+      "active_pts": 0.2,
       "bench_pts": 0.0,
-      "espn_reported": 0.0
+      "espn_reported": 0.2
      },
      "away": {
       "players": [
@@ -2448,7 +2452,7 @@
         "pos": "C",
         "slot_id": 0,
         "slot": "C",
-        "state": "pending",
+        "state": "played",
         "injury": "ACTIVE",
         "points": 0.0,
         "stats": {}
@@ -2459,7 +2463,7 @@
         "pos": "RW",
         "slot_id": 2,
         "slot": "RW",
-        "state": "pending",
+        "state": "played",
         "injury": "ACTIVE",
         "points": 0.0,
         "stats": {}
@@ -2471,7 +2475,7 @@
         "slot_id": 4,
         "slot": "D",
         "state": "pending",
-        "injury": "DAY_TO_DAY",
+        "injury": "OUT",
         "points": 0.0,
         "stats": {}
        },
@@ -2525,7 +2529,7 @@
         "pos": "RW",
         "slot_id": 3,
         "slot": "F",
-        "state": "pending",
+        "state": "played",
         "injury": "ACTIVE",
         "points": 0.0,
         "stats": {}
@@ -4513,7 +4517,7 @@
         "slot_id": 3,
         "slot": "F",
         "state": "nogame",
-        "injury": "DAY_TO_DAY",
+        "injury": "ACTIVE",
         "points": 0.0,
         "stats": {}
        },
@@ -4927,7 +4931,7 @@
         "slot_id": 3,
         "slot": "F",
         "state": "pending",
-        "injury": "DAY_TO_DAY",
+        "injury": "ACTIVE",
         "points": 0.0,
         "stats": {}
        },
@@ -4977,7 +4981,7 @@
         "pos": "RW",
         "slot_id": 2,
         "slot": "RW",
-        "state": "pending",
+        "state": "played",
         "injury": "ACTIVE",
         "points": 0.0,
         "stats": {}
@@ -5065,7 +5069,7 @@
         "pos": "D",
         "slot_id": 4,
         "slot": "D",
-        "state": "pending",
+        "state": "played",
         "injury": "ACTIVE",
         "points": 0.0,
         "stats": {}
@@ -7340,7 +7344,7 @@
         "pos": "D",
         "slot_id": 4,
         "slot": "D",
-        "state": "pending",
+        "state": "played",
         "injury": "ACTIVE",
         "points": 0.0,
         "stats": {}
@@ -7472,7 +7476,7 @@
         "pos": "LW",
         "slot_id": 1,
         "slot": "LW",
-        "state": "pending",
+        "state": "played",
         "injury": "ACTIVE",
         "points": 0.0,
         "stats": {}
@@ -7666,7 +7670,7 @@
         "pos": "LW",
         "slot_id": 7,
         "slot": "BE",
-        "state": "pending",
+        "state": "played",
         "injury": "ACTIVE",
         "points": 0.0,
         "stats": {}
