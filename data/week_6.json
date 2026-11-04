@@ -469,7 +469,7 @@
         "slot_id": 7,
         "slot": "BE",
         "state": "dnp",
-        "injury": "OUT",
+        "injury": "DAY_TO_DAY",
         "points": 0.0,
         "stats": {}
        },
@@ -917,7 +917,7 @@
         "slot_id": 7,
         "slot": "BE",
         "state": "pending",
-        "injury": "OUT",
+        "injury": "DAY_TO_DAY",
         "points": 0.0,
         "stats": {}
        },
