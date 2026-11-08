@@ -8667,7 +8667,7 @@
         "slot_id": 8,
         "slot": "IR",
         "state": "dnp",
-        "injury": "INJURY_RESERVE",
+        "injury": "ACTIVE",
         "points": 0.0,
         "stats": {}
        },
@@ -9080,7 +9080,7 @@
         "slot_id": 8,
         "slot": "IR",
         "state": "pending",
-        "injury": "INJURY_RESERVE",
+        "injury": "ACTIVE",
         "points": 0.0,
         "stats": {}
        },
