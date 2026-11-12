@@ -1653,12 +1653,17 @@
         "slot": "BE",
         "state": "played",
         "injury": "ACTIVE",
-        "points": 0.0,
-        "stats": {}
+        "points": 2.7,
+        "stats": {
+         "A": 2.0,
+         "SOG": 1.0,
+         "HIT": 1.0,
+         "BLK": 1.0
+        }
        }
       ],
       "active_pts": 0.0,
-      "bench_pts": 0.0,
+      "bench_pts": 2.7,
       "espn_reported": 0.0
      }
     },
@@ -3048,8 +3053,12 @@
         "slot": "F",
         "state": "played",
         "injury": "ACTIVE",
-        "points": 0.0,
-        "stats": {}
+        "points": 4.7,
+        "stats": {
+         "G": 2.0,
+         "SOG": 2.0,
+         "PPP": 1.0
+        }
        },
        {
         "id": 4196914,
@@ -3184,9 +3193,9 @@
         "stats": {}
        }
       ],
-      "active_pts": 0.0,
+      "active_pts": 4.7,
       "bench_pts": 0.0,
-      "espn_reported": 0.0
+      "espn_reported": 4.7
      },
      "away": {
       "players": [
@@ -3264,9 +3273,10 @@
         "slot": "BE",
         "state": "played",
         "injury": "ACTIVE",
-        "points": 0.1,
+        "points": 0.2,
         "stats": {
-         "SOG": 1.0
+         "SOG": 1.0,
+         "HIT": 1.0
         }
        },
        {
@@ -3310,8 +3320,12 @@
         "slot": "LW",
         "state": "played",
         "injury": "ACTIVE",
-        "points": 0.0,
-        "stats": {}
+        "points": 1.6,
+        "stats": {
+         "A": 1.0,
+         "SOG": 3.0,
+         "HIT": 3.0
+        }
        },
        {
         "id": 3042055,
@@ -3380,9 +3394,9 @@
         "stats": {}
        }
       ],
-      "active_pts": 0.0,
-      "bench_pts": 0.1,
-      "espn_reported": 0.0
+      "active_pts": 1.6,
+      "bench_pts": 0.2,
+      "espn_reported": 1.6
      }
     },
     "46": {
