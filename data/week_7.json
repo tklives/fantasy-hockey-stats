@@ -4461,7 +4461,7 @@
         "slot_id": 7,
         "slot": "BE",
         "state": "nogame",
-        "injury": "DAY_TO_DAY",
+        "injury": "ACTIVE",
         "points": 0.0,
         "stats": {}
        },
@@ -4859,7 +4859,7 @@
         "slot_id": 7,
         "slot": "BE",
         "state": "pending",
-        "injury": "DAY_TO_DAY",
+        "injury": "ACTIVE",
         "points": 0.0,
         "stats": {}
        },
@@ -6895,7 +6895,7 @@
         "slot_id": 3,
         "slot": "F",
         "state": "nogame",
-        "injury": "DAY_TO_DAY",
+        "injury": "OUT",
         "points": 0.0,
         "stats": {}
        },
@@ -6906,7 +6906,7 @@
         "slot_id": 4,
         "slot": "D",
         "state": "nogame",
-        "injury": "DAY_TO_DAY",
+        "injury": "OUT",
         "points": 0.0,
         "stats": {}
        },
@@ -7223,7 +7223,7 @@
         "slot_id": 4,
         "slot": "D",
         "state": "nogame",
-        "injury": "ACTIVE",
+        "injury": "DAY_TO_DAY",
         "points": 0.0,
         "stats": {}
        },
@@ -7300,7 +7300,7 @@
         "slot_id": 3,
         "slot": "F",
         "state": "pending",
-        "injury": "DAY_TO_DAY",
+        "injury": "OUT",
         "points": 0.0,
         "stats": {}
        },
@@ -7311,7 +7311,7 @@
         "slot_id": 4,
         "slot": "D",
         "state": "pending",
-        "injury": "DAY_TO_DAY",
+        "injury": "OUT",
         "points": 0.0,
         "stats": {}
        },
@@ -7604,7 +7604,7 @@
         "slot_id": 7,
         "slot": "BE",
         "state": "pending",
-        "injury": "ACTIVE",
+        "injury": "DAY_TO_DAY",
         "points": 0.0,
         "stats": {}
        },
@@ -8615,7 +8615,7 @@
         "slot_id": 8,
         "slot": "IR",
         "state": "nogame",
-        "injury": "INJURY_RESERVE",
+        "injury": "ACTIVE",
         "points": 0.0,
         "stats": {}
        },
@@ -8823,7 +8823,7 @@
         "slot_id": 8,
         "slot": "IR",
         "state": "pending",
-        "injury": "INJURY_RESERVE",
+        "injury": "ACTIVE",
         "points": 0.0,
         "stats": {}
        },
