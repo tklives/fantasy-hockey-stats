@@ -6050,7 +6050,7 @@
         "slot_id": 3,
         "slot": "F",
         "state": "nogame",
-        "injury": "DAY_TO_DAY",
+        "injury": "OUT",
         "points": 0.0,
         "stats": {}
        },
