@@ -1920,7 +1920,7 @@
         "slot_id": 7,
         "slot": "BE",
         "state": "nogame",
-        "injury": "DAY_TO_DAY",
+        "injury": "OUT",
         "points": 0.0,
         "stats": {}
        },
@@ -1953,7 +1953,7 @@
         "slot_id": 6,
         "slot": "UTIL",
         "state": "nogame",
-        "injury": "ACTIVE",
+        "injury": "INJURY_RESERVE",
         "points": 0.0,
         "stats": {}
        },
@@ -2289,10 +2289,12 @@
         "pos": "LW",
         "slot_id": 1,
         "slot": "LW",
-        "state": "pending",
+        "state": "played",
         "injury": "ACTIVE",
-        "points": 0.0,
-        "stats": {}
+        "points": 0.5,
+        "stats": {
+         "BLK": 1.0
+        }
        },
        {
         "id": 4874740,
@@ -2312,7 +2314,7 @@
         "slot_id": 3,
         "slot": "F",
         "state": "pending",
-        "injury": "DAY_TO_DAY",
+        "injury": "OUT",
         "points": 0.0,
         "stats": {}
        },
@@ -2322,10 +2324,15 @@
         "pos": "G",
         "slot_id": 5,
         "slot": "G",
-        "state": "pending",
+        "state": "played",
         "injury": "ACTIVE",
-        "points": 0.0,
-        "stats": {}
+        "points": 0.6,
+        "stats": {
+         "SA": 14.0,
+         "GA": 1.0,
+         "SV": 13.0,
+         "SV%": 0.929
+        }
        },
        {
         "id": 5080143,
@@ -2345,7 +2352,7 @@
         "slot_id": 3,
         "slot": "F",
         "state": "pending",
-        "injury": "ACTIVE",
+        "injury": "INJURY_RESERVE",
         "points": 0.0,
         "stats": {}
        },
@@ -2372,9 +2379,9 @@
         "stats": {}
        }
       ],
-      "active_pts": 0.0,
+      "active_pts": 1.1,
       "bench_pts": 0.0,
-      "espn_reported": 0.0
+      "espn_reported": 1.1
      },
      "away": {
       "players": [
@@ -2384,10 +2391,15 @@
         "pos": "C",
         "slot_id": 0,
         "slot": "C",
-        "state": "pending",
+        "state": "played",
         "injury": "ACTIVE",
-        "points": 0.0,
-        "stats": {}
+        "points": 2.1,
+        "stats": {
+         "A": 1.0,
+         "HIT": 1.0,
+         "BLK": 1.0,
+         "PPP": 1.0
+        }
        },
        {
         "id": 3114727,
@@ -2395,10 +2407,15 @@
         "pos": "C",
         "slot_id": 3,
         "slot": "F",
-        "state": "pending",
+        "state": "played",
         "injury": "ACTIVE",
-        "points": 0.0,
-        "stats": {}
+        "points": 2.8,
+        "stats": {
+         "G": 1.0,
+         "SOG": 2.0,
+         "HIT": 1.0,
+         "PPP": 1.0
+        }
        },
        {
         "id": 3899952,
@@ -2566,9 +2583,9 @@
         "stats": {}
        }
       ],
-      "active_pts": 0.0,
+      "active_pts": 4.9,
       "bench_pts": 0.0,
-      "espn_reported": 0.0
+      "espn_reported": 4.9
      }
     },
     "55": {
@@ -4613,7 +4630,7 @@
         "slot_id": 4,
         "slot": "D",
         "state": "nogame",
-        "injury": "DAY_TO_DAY",
+        "injury": "OUT",
         "points": 0.0,
         "stats": {}
        },
@@ -4942,10 +4959,13 @@
         "pos": "RW",
         "slot_id": 6,
         "slot": "UTIL",
-        "state": "pending",
+        "state": "played",
         "injury": "ACTIVE",
-        "points": 0.0,
-        "stats": {}
+        "points": 0.7,
+        "stats": {
+         "HIT": 2.0,
+         "BLK": 1.0
+        }
        },
        {
         "id": 5208,
@@ -4970,9 +4990,9 @@
         "stats": {}
        }
       ],
-      "active_pts": 0.0,
+      "active_pts": 0.7,
       "bench_pts": 0.0,
-      "espn_reported": 0.0
+      "espn_reported": 0.7
      },
      "away": {
       "players": [
@@ -5005,7 +5025,7 @@
         "slot_id": 4,
         "slot": "D",
         "state": "pending",
-        "injury": "DAY_TO_DAY",
+        "injury": "OUT",
         "points": 0.0,
         "stats": {}
        },
@@ -5158,14 +5178,17 @@
         "pos": "C",
         "slot_id": 7,
         "slot": "BE",
-        "state": "pending",
+        "state": "played",
         "injury": "ACTIVE",
-        "points": 0.0,
-        "stats": {}
+        "points": 1.2,
+        "stats": {
+         "A": 1.0,
+         "SOG": 2.0
+        }
        }
       ],
       "active_pts": 0.0,
-      "bench_pts": 0.0,
+      "bench_pts": 1.2,
       "espn_reported": 0.0
      }
     },
@@ -7511,10 +7534,14 @@
         "pos": "D",
         "slot_id": 4,
         "slot": "D",
-        "state": "pending",
+        "state": "played",
         "injury": "ACTIVE",
-        "points": 0.0,
-        "stats": {}
+        "points": 2.0,
+        "stats": {
+         "A": 1.0,
+         "BLK": 1.0,
+         "PPP": 1.0
+        }
        },
        {
         "id": 3648002,
@@ -7533,10 +7560,12 @@
         "pos": "C",
         "slot_id": 3,
         "slot": "F",
-        "state": "pending",
+        "state": "played",
         "injury": "ACTIVE",
-        "points": 0.0,
-        "stats": {}
+        "points": 0.5,
+        "stats": {
+         "BLK": 1.0
+        }
        },
        {
         "id": 4196914,
@@ -7671,9 +7700,9 @@
         "stats": {}
        }
       ],
-      "active_pts": 0.0,
+      "active_pts": 2.5,
       "bench_pts": 0.0,
-      "espn_reported": 0.0
+      "espn_reported": 2.5
      }
     },
     "55": {
@@ -8705,7 +8734,7 @@
         "slot_id": 3,
         "slot": "F",
         "state": "nogame",
-        "injury": "ACTIVE",
+        "injury": "OUT",
         "points": 0.0,
         "stats": {}
        },
@@ -8903,7 +8932,7 @@
         "slot_id": 3,
         "slot": "F",
         "state": "pending",
-        "injury": "ACTIVE",
+        "injury": "OUT",
         "points": 0.0,
         "stats": {}
        },
@@ -8979,10 +9008,15 @@
         "pos": "G",
         "slot_id": 5,
         "slot": "G",
-        "state": "pending",
+        "state": "played",
         "injury": "ACTIVE",
-        "points": 0.0,
-        "stats": {}
+        "points": -5.6,
+        "stats": {
+         "SA": 5.0,
+         "GA": 3.0,
+         "SV": 2.0,
+         "SV%": 0.4
+        }
        },
        {
         "id": 5831,
@@ -8996,9 +9030,9 @@
         "stats": {}
        }
       ],
-      "active_pts": 0.0,
+      "active_pts": -5.6,
       "bench_pts": 0.0,
-      "espn_reported": 0.0
+      "espn_reported": -5.6
      }
     },
     "55": {
