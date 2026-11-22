@@ -2782,10 +2782,13 @@
         "pos": "LW",
         "slot_id": 1,
         "slot": "LW",
-        "state": "pending",
+        "state": "played",
         "injury": "ACTIVE",
-        "points": 0.0,
-        "stats": {}
+        "points": 0.3,
+        "stats": {
+         "SOG": 1.0,
+         "HIT": 2.0
+        }
        },
        {
         "id": 4874740,
@@ -2865,9 +2868,9 @@
         "stats": {}
        }
       ],
-      "active_pts": 0.0,
+      "active_pts": 0.3,
       "bench_pts": 0.0,
-      "espn_reported": 0.0
+      "espn_reported": 0.3
      },
      "away": {
       "players": [
@@ -6040,10 +6043,15 @@
         "pos": "D",
         "slot_id": 4,
         "slot": "D",
-        "state": "pending",
+        "state": "played",
         "injury": "ACTIVE",
-        "points": 0.0,
-        "stats": {}
+        "points": 2.2,
+        "stats": {
+         "A": 1.0,
+         "SOG": 2.0,
+         "BLK": 1.0,
+         "PPP": 1.0
+        }
        },
        {
         "id": 4587996,
@@ -6128,15 +6136,20 @@
         "pos": "C",
         "slot_id": 6,
         "slot": "UTIL",
-        "state": "pending",
+        "state": "played",
         "injury": "ACTIVE",
-        "points": 0.0,
-        "stats": {}
+        "points": 2.3,
+        "stats": {
+         "A": 1.0,
+         "SOG": 5.0,
+         "HIT": 3.0,
+         "BLK": 1.0
+        }
        }
       ],
-      "active_pts": 0.0,
+      "active_pts": 4.5,
       "bench_pts": 0.0,
-      "espn_reported": 0.0
+      "espn_reported": 4.5
      }
     }
    }
@@ -8964,10 +8977,13 @@
         "pos": "C",
         "slot_id": 3,
         "slot": "F",
-        "state": "pending",
+        "state": "played",
         "injury": "ACTIVE",
-        "points": 0.0,
-        "stats": {}
+        "points": 1.1,
+        "stats": {
+         "A": 1.0,
+         "SOG": 1.0
+        }
        },
        {
         "id": 4196914,
@@ -9102,9 +9118,9 @@
         "stats": {}
        }
       ],
-      "active_pts": 0.0,
+      "active_pts": 1.1,
       "bench_pts": 0.0,
-      "espn_reported": 0.0
+      "espn_reported": 1.1
      }
     }
    }
