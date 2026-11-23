@@ -275,7 +275,7 @@
         "slot_id": 2,
         "slot": "RW",
         "state": "pending",
-        "injury": "INJURY_RESERVE",
+        "injury": "ACTIVE",
         "points": 0.0,
         "stats": {}
        },
