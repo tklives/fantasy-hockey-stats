@@ -2283,7 +2283,7 @@
         "slot_id": 8,
         "slot": "IR",
         "state": "dnp",
-        "injury": "INJURY_RESERVE",
+        "injury": "ACTIVE",
         "points": 0.0,
         "stats": {}
        },
@@ -2398,19 +2398,19 @@
         "slot": "G",
         "state": "played",
         "injury": "ACTIVE",
-        "points": 2.2,
+        "points": 2.4,
         "stats": {
          "W": 1.0,
-         "SA": 24.0,
+         "SA": 25.0,
          "GA": 3.0,
-         "SV": 21.0,
-         "SV%": 0.875
+         "SV": 22.0,
+         "SV%": 0.88
         }
        }
       ],
-      "active_pts": 10.1,
+      "active_pts": 10.3,
       "bench_pts": 0.0,
-      "espn_reported": 10.1
+      "espn_reported": 10.3
      },
      "away": {
       "players": [
@@ -2641,7 +2641,7 @@
         "slot_id": 3,
         "slot": "F",
         "state": "played",
-        "injury": "DAY_TO_DAY",
+        "injury": "OUT",
         "points": 2.1,
         "stats": {
          "G": 1.0,
@@ -5653,7 +5653,7 @@
         "slot_id": 3,
         "slot": "F",
         "state": "nogame",
-        "injury": "INJURY_RESERVE",
+        "injury": "ACTIVE",
         "points": 0.0,
         "stats": {}
        },
@@ -10329,7 +10329,7 @@
         "slot_id": 7,
         "slot": "BE",
         "state": "nogame",
-        "injury": "INJURY_RESERVE",
+        "injury": "ACTIVE",
         "points": 0.0,
         "stats": {}
        },
@@ -10426,7 +10426,7 @@
         "slot_id": 7,
         "slot": "BE",
         "state": "dnp",
-        "injury": "DAY_TO_DAY",
+        "injury": "OUT",
         "points": 0.0,
         "stats": {}
        },
