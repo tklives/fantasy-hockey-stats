@@ -1300,7 +1300,7 @@
         "slot_id": 6,
         "slot": "UTIL",
         "state": "dnp",
-        "injury": "INJURY_RESERVE",
+        "injury": "ACTIVE",
         "points": 0.0,
         "stats": {}
        },
@@ -1680,7 +1680,7 @@
         "slot_id": 6,
         "slot": "UTIL",
         "state": "pending",
-        "injury": "INJURY_RESERVE",
+        "injury": "ACTIVE",
         "points": 0.0,
         "stats": {}
        },
